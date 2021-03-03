@@ -9,17 +9,23 @@ client.on('message', async msg => {
     if(msg.author.bot) {
         return
     }
-    if(msg.content.startsWith("p!test")) {
-        msg.channel.send(owo.translate("stoooop im trying to recharge my batteries >:((((((("));
+    function msgRNG() {
+        let mrng = Math.floor((Math.random() *7) +1)
+        let rngmsg = null
+        if(mrng === 5) {
+            rngmsg = "zzz..."
+        }else if(mrng === 4) {
+            rngmsg = owo.translate("stoooop im trying to recharge my batteries >:(((((((")
+        }else if(mrng === 3) {
+            rngmsg = "snorig"
+        }else if(mrng === 2) {
+            rngmsg = "*visible anger*"
+        }else if(mrng === 1) {
+            rngmsg = "huh? what? why did you wake me up?"
+        }     
+        msg.channel.send(rngmsg)
     }
-    if(msg.content.startsWith("p!help")) {
-        msg.channel.send("I am trying to get some sleep here >:(")
-        }
-    if(msg.content.startsWith("p!changelog")) {
-        msg.channel.send("zzz...")
-    }
-    if(msg.content.startsWith("p!random text")) {
-        msg.channel.send("snorig...")
-    }
+    if(msg.content.startsWith("p!horknee" || "p!owoify" || "p!invite" || "p!changelog" || "p!help" || "p!rng"))
+    msgRNG();
 });
 client.login("ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc")

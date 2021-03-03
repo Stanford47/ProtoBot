@@ -9,11 +9,11 @@ client.on('message', async msg => {
         return
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V3")
+    .setTitle("ProtoBot V4")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"added changelog, ||secret(ask <@398758748904226836> about it||, and owoify."},
-        {name:"**Changes!**", value:"Changed prefix to p! because of conflicts with other bots, renamed the bot to ProtoBot, changed the help command to an embed."}
+        {name:"**New Commands!**", value:"added another secret command ask <@398758748904226836> about it"},
+        {name:"**Changes!**", value:"added new command to the help command"}
     )
     .setFooter("OwO")
     .setTimestamp()

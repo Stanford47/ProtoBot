@@ -19,7 +19,10 @@ if(msg.author.bot) {
     {name:"**sweeping** (not working yet)", value:owo.translate("you'll find out when you try it...")},
     {name:"**random text**(not working yet)", value:owo.translate("it gives you " + the + " text!")},
     {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
-    {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")}
+    {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
+    {name:"**rng**", value:owo.translate("i will give you a random number!")},
+    {name:"**invite**", value:owo("i give you my invite link so that you can put me in your server")},
+    {name:"||**horknee**||", value:"||**do p!help-horknee for the availiable commands for this**||"}
 )
 .setFooter(owo.translate("hello there friend!"))
 .setAuthor()

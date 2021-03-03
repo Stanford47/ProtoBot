@@ -11,12 +11,10 @@ client.on('message', async msg => {
     }
     function RNGfunct() {
     let rng = Math.floor(Math.random() *100000000001);
-    console.log(rng);
-    msg.channel.send(rng)
+     msg.channel.send(owo.translate("here is your random number :) " + rng))
     }
     if(msg.content.startsWith('p!rng')) {
-        msg.channel.send(owo.translate("here is your random number :) "))
-        RNGfunct();
+          RNGfunct();
     }
 });
 client.login('ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc')
