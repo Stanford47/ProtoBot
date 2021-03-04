@@ -2,7 +2,7 @@
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const botToken = ("ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc")
+const botToken = 'ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc'
 client.on('ready', () => {
     console.log(owo('I am ready :)'));
 });
@@ -25,7 +25,9 @@ client.on('message', async msg => {
         {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
         {name:"**rng**", value:owo.translate("i will give you a random number!")},
         {name:"**invite**", value:owo("i give you my invite link so that you can put me in your server")},
-        {name:"||**horknee**||", value:"||**do p!horknee-help for the availiable commands for this**||"}
+        {name:"||**horknee**||", value:"||**do p!horknee-help for the availiable commands for this**||"},
+        {name:"**music** (not working)", value:owo.translate("**do p!music-help for the availiable commands for this**")},
+        {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836> anything.") }
     )
     .setFooter(owo.translate("hello there friend!"))
     .setAuthor()
@@ -39,11 +41,11 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V4")
+    .setTitle("ProtoBot V5")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"added another secret command ask <@398758748904226836> about it"},
-        {name:"**Changes!**", value:"added new command to the help command"}
+        {name:"**New Commands!**", value:"added a \"beta\" command that is being tested. If you want to try it out, you know who to ask..."},
+        {name:"**Changes!**", value:"made a few small changes in the code that you don\'t need to worry about. unless you really want to know..."}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -65,7 +67,7 @@ if(msg.content.startsWith("p!horknee-help")) {
 }
 if(msg.content.startsWith("p!invite")) {
     msg.channel.send(owo.translate("here\'s the link so you can invite me to your server!"))
-    msg.channel.send("https://discord.com/oauth2/authorize?client_id=816003326990221373&scope=bot")
+    msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
 }
 if(msg.content.startsWith("p!horknee-copypasta")) {
     console.log("horny user detected!");
@@ -92,6 +94,24 @@ function RNGfunct() {
     }
 if(msg.content.startsWith("p!horknee-yoff")) {
     inquiryYG();
+}
+function fdRNG() {
+    let rngF = Math.floor(Math.random() *101);
+     let userm = msg.mentions.users
+      const fdembed = new Discord.MessageEmbed()
+.setDescription(owo.translate("**furry detector**"))
+.addFields (
+    {name:owo.translate("**calculated furry %**"), value:owo.translate(userm + "is " + rngF + "% furry")}
+)
+.setTimestamp()
+     if(!msg.mentions.users) {
+         msg.channel.send(owo.translate("You need to mention a user when trying this command"))
+     } else {
+        msg.channel.send(fdembed)
+     }
+}
+if(msg.content.startsWith("p!fdetect")) {
+    fdRNG();
 }
 });
 client.login(botToken)
