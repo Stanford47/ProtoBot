@@ -21,7 +21,7 @@ client.on('message', async msg => {
         {name:owo.translate("**calculated furry %**"), value:owo.translate(userm + "is " + rngF + "% furry")}
     )
     .setTimestamp()
-         if(!msg.mentions.users) {
+         if(!userm) {
              msg.channel.send(owo.translate("You need to mention a user when trying this command"))
          } else {
             msg.channel.send(fdembed)

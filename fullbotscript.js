@@ -19,15 +19,11 @@ client.on('message', async msg => {
     .addFields(
         {name:"**test**", value:owo.translate("use this to test if i am alive")},
         {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
-        {name:"**sweeping** (not working yet)", value:owo.translate("you'll find out when you try it...")},
-        {name:"**random text**(not working yet)", value:owo.translate("it gives you random text!")},
         {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
-        {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
-        {name:"**rng**", value:owo.translate("i will give you a random number!")},
-        {name:"**invite**", value:owo("i give you my invite link so that you can put me in your server")},
+        {name:"**invite**", value:owo.translate("i give you my invite link so that you can put me in your server")},
         {name:"||**horknee**||", value:"||**do p!horknee-help for the availiable commands for this**||"},
         {name:"**music** (not working)", value:owo.translate("**do p!music-help for the availiable commands for this**")},
-        {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836> anything.") }
+        {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
     )
     .setFooter(owo.translate("hello there friend!"))
     .setAuthor()
@@ -41,11 +37,11 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V5")
+    .setTitle("ProtoBot V6")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"added a \"beta\" command that is being tested. If you want to try it out, you know who to ask..."},
-        {name:"**Changes!**", value:"made a few small changes in the code that you don\'t need to worry about. unless you really want to know..."}
+        {name:"**New Commands!**", value:"added a \"beta\" command that is being tested. Also, I\'ve added a help embed for miscellaneous commands (this is where you can find the new command)"},
+        {name:"**Changes!**", value:"moved rng and owoify to misc. help"}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -112,6 +108,19 @@ function fdRNG() {
 }
 if(msg.content.startsWith("p!fdetect")) {
     fdRNG();
+}
+const mischelpEmbed = new Discord.MessageEmbed()
+.setTitle("**Misc. help**")
+.setDescription(owo.translate("Help for other commands"))
+.addFields(
+    {name:"**fdetect** (working but not finished)", value:owo.translate("Calculates the amount a person is a furry")},
+    {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
+    {name:"**rng**", value:owo.translate("I will give you a random number")}
+)
+.setFooter("UwU")
+.setTimestamp()
+if(msg.content.startsWith("p!misc-help")) {
+    msg.channel.send(mischelpEmbed)
 }
 });
 client.login(botToken)
