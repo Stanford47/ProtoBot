@@ -2,6 +2,10 @@
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const {
+    botToken,
+    prefix,
+} = require("../config.json")
 client.on('ready', () => {
     console.log(owo('I am ready :)'));
 });
@@ -10,9 +14,11 @@ client.on('message', async msg => {
         return
     }
     function msgRNG() {
-        let mrng = Math.floor((Math.random() *7) +1)
-        let rngmsg = null
-        if(mrng === 5) {
+        let mrng = Math.floor((Math.random() *8) +1)
+        let rngmsg = mrng
+        if(mrng === 6) {
+            rngmsg = "stop poking me uwu am twying to sweep"
+        }else if(mrng === 5) {
             rngmsg = "zzz..."
         }else if(mrng === 4) {
             rngmsg = owo.translate("stoooop im trying to recharge my batteries >:(((((((")
@@ -25,7 +31,8 @@ client.on('message', async msg => {
         }     
         msg.channel.send(rngmsg)
     }
-    if(msg.content.startsWith("p!horknee" || "p!owoify" || "p!invite" || "p!changelog" || "p!help" || "p!rng"))
+    if(msg.content.startsWith(prefix)) {
     msgRNG();
+    }
 });
-client.login("ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc")
+client.login(botToken)

@@ -15,7 +15,7 @@ client.on('message', async msg => {
     }
     const coolembed = new Discord.MessageEmbed()
     .setTitle(owo.translate("All of my commands in one place"))
-    .setDescription(owo("**remember my prefix is:**" + "__** p!**__"))
+    .setDescription(owo.translate("**remember my prefix is:**" + "__** p!**__"))
     .addFields(
         {name:"**test**", value:owo.translate("use this to test if i am alive")},
         {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
@@ -37,11 +37,11 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V6")
+    .setTitle("ProtoBot V7")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"added a \"beta\" command that is being tested. Also, I\'ve added a help embed for miscellaneous commands (this is where you can find the new command)"},
-        {name:"**Changes!**", value:"moved rng and owoify to misc. help"}
+        {name:"**New Commands!**", value:"nothing new this time :("},
+        {name:"**Changes!**", value:"some small changes in the source code that you dont need to worry about"}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -124,3 +124,7 @@ if(msg.content.startsWith("p!misc-help")) {
 }
 });
 client.login(botToken)
+//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777
+//btw the cool people are people that helped in some way,shape, or form
+//yes i know i can use the multi-line comments
+//made by Stanford47#6558
