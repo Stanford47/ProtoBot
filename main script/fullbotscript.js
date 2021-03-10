@@ -37,11 +37,11 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V7")
+    .setTitle("ProtoBot V7.1")
     .setDescription("Most recent changes")
     .addFields (
         {name:"**New Commands!**", value:"nothing new this time :("},
-        {name:"**Changes!**", value:"some small changes in the source code that you dont need to worry about"}
+        {name:"**Changes!**", value:"added more to a command :)"}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -78,19 +78,29 @@ function RNGfunct() {
           RNGfunct();
     }
     function inquiryYG() {
+        let selectionRNG = Math.round((Math.random() *2))
         let iyg = Math.floor(Math.random() *2623476) +12426
         let post = 'https://e621.net/posts/' + iyg + '?q=set%3Abestfavorites'
-        if(!msg.channel.nsfw) {
-            msg.channel.send(owo.translate("I cannot send nsfw posts in a non-nsfw channel..."))
-        } else {
-            msg.channel.send(owo.translate("OwO looks like someone is very horny"))
-            msg.channel.send(post)
+        let iygsecondary = Math.floor((Math.random() *1080571) +22)
+        let secondarypost = 'https://e621.net/posts/' + iygsecondary + '?tags=set%3Abest_of_e621'
+        if(selectionRNG < 1) {
+            selectionRNG = selectionRNG + 1
         }
-        
+            if(!msg.channel.nsfw) {
+                msg.channel.send(owo.translate("I cannot send nsfw posts in a non-nsfw channel..."))
+            } else {
+                msg.channel.send(owo.translate("OwO looks like someone is very horny"))
+               if(selectionRNG === 1) {
+                   msg.channel.send(post)
+               } else if(selectionRNG === 2) {
+                   msg.channel.send(secondarypost)
+               }
+            }
+            
+        }
+    if(msg.content.startsWith("p!horknee-yoff")) {
+        inquiryYG();
     }
-if(msg.content.startsWith("p!horknee-yoff")) {
-    inquiryYG();
-}
 function fdRNG() {
     let rngF = Math.floor(Math.random() *101);
      let userm = msg.mentions.users
