@@ -37,11 +37,11 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V7.1")
+    .setTitle("ProtoBot V8")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"nothing new this time :("},
-        {name:"**Changes!**", value:"added more to a command :)"}
+        {name:"**New Commands!**", value:"added another secret command. you know who to ask :)"},
+        {name:"**Changes!**", value:"nothing has really been changed this time.."}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -132,9 +132,35 @@ const mischelpEmbed = new Discord.MessageEmbed()
 if(msg.content.startsWith("p!misc-help")) {
     msg.channel.send(mischelpEmbed)
 }
+function die() {
+    let dietextrng = Math.floor((Math.random()*5) +1)
+    if(dietextrng === 4) {
+        msg.channel.send(owo.translate("thats not nice :("))
+    } else if(dietextrng === 3) {
+        msg.channel.send(owo.translate("no I won\'t"))
+    } else if(dietextrng === 2) {
+        msg.channel.send(owo.translate("no u"))
+    } else if(dietextrng === 1) {
+        msg.channel.send(owo.translate("bad!"))
+    }
+}
+if(msg.content.startsWith("p!die")) {
+    die();
+}
+const secretEmbed = new Discord.MessageEmbed()
+.setTitle("**Secret Commands**")
+.setDescription("this is a secret dont tell anyone!!")
+.addFields(
+    {name:"die", value:owo.translate("please don\'t do this :(")}
+)
+.setTimestamp()
+.setFooter("h is best letter!")
+    if(msg.content.startsWith("p!secret")) {
+        msg.channel.send(secretEmbed)
+    }
 });
 client.login(botToken)
-//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777
+//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507
 //btw the cool people are people that helped in some way,shape, or form
 //yes i know i can use the multi-line comments
 //made by Stanford47#6558
