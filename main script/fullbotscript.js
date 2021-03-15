@@ -26,7 +26,6 @@ client.on('message', async msg => {
         {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
     )
     .setFooter(owo.translate("hello there friend!"))
-    .setAuthor()
     .setTimestamp()
     if(msg.content.startsWith("p!help")) {
     msg.channel.send(owo.translate("help? You want help about me? Ok! here you go!"))
