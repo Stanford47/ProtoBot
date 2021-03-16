@@ -187,3 +187,22 @@ client.login(botToken)
 //btw the cool people are people that helped in some way,shape, or form
 //yes i know i can use the multi-line comments
 //made by Stanford47#6558
+/*
+  |==============================|
+  |=  ++++++   +   +   +++++++  =|
+  |=  +        +   +         +  =|
+  |=  ++++++   ++++++      ++++ =|
+  |=       +       +         +  =|
+  |=  ++++++       +         +  =|
+  |==============================|
+  
+  OOOOOO       OOOOOO
+  OOOOOO        OOOOO
+  OOOOOO         OOOO
+                  OOO
+                   OO
+                  OOO
+  OOOOOO         OOOO
+  OOOOOO        OOOOO
+  OOOOOO       OOOOOO
+*/
