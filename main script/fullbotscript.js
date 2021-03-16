@@ -2,15 +2,22 @@
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const botToken = 'ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.wdMZSo0q1DYNjnkCszd89qRJ2ng'
+const {
+    botToken,
+    prefix,
+} = require("./config.json")
 client.on('ready', () => {
+    client.user.setActivity("owo", {
+        type:"STREAMING",
+        url:"https://www.youtube.com/watch?v=rSbiMQ-0Pp4"
+    });
     console.log(owo('I am ready :)'));
 });
 client.on('message', async msg => {
     if(msg.author.bot) {
         return
     }
-    if(msg.content.startsWith("p!test")) {
+    if(msg.content.startsWith(prefix+"test")) {
         msg.channel.send(owo("hello yes i am here, i work"))
     }
     const coolembed = new Discord.MessageEmbed()
@@ -21,50 +28,50 @@ client.on('message', async msg => {
         {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
         {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
         {name:"**invite**", value:owo.translate("i give you my invite link so that you can put me in your server")},
-        {name:"||**horknee**||", value:"||**do p!horknee-help for the availiable commands for this**||"},
+        {name:"||**horknee**||", value:"||**do p!horknee help for the availiable commands for this**||"},
         {name:"**music** (not working)", value:owo.translate("**do p!music-help for the availiable commands for this**")},
         {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
     )
     .setFooter(owo.translate("hello there friend!"))
     .setTimestamp()
-    if(msg.content.startsWith("p!help")) {
+    if(msg.content.startsWith(prefix+"help")) {
     msg.channel.send(owo.translate("help? You want help about me? Ok! here you go!"))
         msg.channel.send(coolembed)
     }
-    if(msg.content.startsWith("p!owoify")) {
+    if(msg.content.startsWith(prefix+"owoify")) {
         let owoification = msg.content
         msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
     }
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V8")
+    .setTitle("ProtoBot V9.1")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"added another secret command. you know who to ask :)"},
-        {name:"**Changes!**", value:"nothing has really been changed this time.."}
+        {name:"**New Commands!**", value:"nothing..."},
+        {name:"**Changes!**", value:"fixed some bugs and did some other miscellaneous tasks. I also renamed a few commands for ease of use purposes"}
     )
     .setFooter("OwO")
     .setTimestamp()
-    if(msg.content.startsWith("p!changelog")) {
+    if(msg.content.startsWith(prefix+"changelog")) {
         msg.channel.send(changedEmbed);
     }
     const horkneeHelp = new Discord.MessageEmbed()
 .setTitle("Horknee Help")
-.setDescription("when specifying the command you want, put a **-** between the two words (eg. p!horknee-copypasta)")
+.setDescription("why would you want these...?")
 .addFields (
     {name:"**copypasta**", value:owo.translate("I will say a cool copypasta owo")},
     {name:"||**yoff**||", value:owo.translate("||lets be honest, its kinda obvious what this does||")}
 )
 .setFooter("òwó")
 .setTimestamp()
-if(msg.content.startsWith("p!horknee-help")) {
+if(msg.content.startsWith(prefix+"horknee help")) {
     msg.channel.send(owo.translate("ok then..."))
     msg.channel.send(horkneeHelp)
 }
-if(msg.content.startsWith("p!invite")) {
+if(msg.content.startsWith(prefix+"invite")) {
     msg.channel.send(owo.translate("here\'s the link so you can invite me to your server!"))
     msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
 }
-if(msg.content.startsWith("p!horknee-copypasta")) {
+if(msg.content.startsWith(prefix+"copypasta")) {
     console.log("horny user detected!");
     msg.channel.send(owo.translate("OwO looks like someone is horny"));
     msg.channel.send(owo.translate("Rawr x3 nuzzles how are you pounces on you you're so warm o3o notices you have a bulge o: someone's happy ;) nuzzles your necky wecky~ murr~ hehehe rubbies your bulgy wolgy you're so big :oooo rubbies more on your bulgy wolgy it doesn't stop growing ·///· kisses you and lickies your necky daddy likies (; nuzzles wuzzles I hope daddy really likes $: wiggles butt and squirms I want to see your big daddy meat~ wiggles butt I have a little itch o3o wags tail can you please get my itch~ puts paws on your chest nyea~ its a seven inch itch rubs your chest can you help me pwease squirms pwetty pwease sad face I need to be punished runs paws down your chest and bites lip like I need to be punished really good~ paws on your bulge as I lick my lips I'm getting thirsty. I can go for some milk unbuttons your pants as my eyes glow you smell so musky :v licks shaft mmmm~"));
@@ -73,7 +80,7 @@ function RNGfunct() {
     let rng = Math.floor(Math.random() *100000000001);
      msg.channel.send(owo.translate("here is your random number :) " + rng))
     }
-    if(msg.content.startsWith('p!rng')) {
+    if(msg.content.startsWith(prefix+'rng')) {
           RNGfunct();
     }
     function inquiryYG() {
@@ -97,7 +104,7 @@ function RNGfunct() {
             }
             
         }
-    if(msg.content.startsWith("p!horknee-yoff")) {
+    if(msg.content.startsWith(prefix+"yoff")) {
         inquiryYG();
     }
 function fdRNG() {
@@ -115,7 +122,7 @@ function fdRNG() {
         msg.channel.send(fdembed)
      }
 }
-if(msg.content.startsWith("p!fdetect")) {
+if(msg.content.startsWith(prefix+"fdetect")) {
     fdRNG();
 }
 const mischelpEmbed = new Discord.MessageEmbed()
@@ -128,7 +135,7 @@ const mischelpEmbed = new Discord.MessageEmbed()
 )
 .setFooter("UwU")
 .setTimestamp()
-if(msg.content.startsWith("p!misc-help")) {
+if(msg.content.startsWith(prefix+"misc-help")) {
     msg.channel.send(mischelpEmbed)
 }
 function die() {
@@ -143,19 +150,36 @@ function die() {
         msg.channel.send(owo.translate("bad!"))
     }
 }
-if(msg.content.startsWith("p!die")) {
+if(msg.content.startsWith(prefix+"die")) {
     die();
 }
 const secretEmbed = new Discord.MessageEmbed()
 .setTitle("**Secret Commands**")
 .setDescription("this is a secret dont tell anyone!!")
 .addFields(
-    {name:"die", value:owo.translate("please don\'t do this :(")}
+    {name:"die", value:owo.translate("please don\'t do this :(")},
+    {name:"uwu", value:owo.translate(":)")}
 )
 .setTimestamp()
 .setFooter("h is best letter!")
-    if(msg.content.startsWith("p!secret")) {
+    if(msg.content.startsWith(prefix+"secret")) {
         msg.channel.send(secretEmbed)
+    }
+    function uwuowo() {
+        let uwurng = Math.floor((Math.random() *3)+1)
+        if(uwurng === 1) {
+            msg.channel.send("uwu")
+        } else if(uwurng === 2) {
+            msg.channel.send("owo")
+        } else if(uwurng === 3) {
+            msg.channel.send(":3")
+        }
+    }
+    if(msg.content.startsWith(prefix+"owo")) {
+        uwuowo();
+    }
+    if(msg.content.startsWith(prefix+"uwu")) {
+        uwuowo();
     }
 });
 client.login(botToken)
