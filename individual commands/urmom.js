@@ -24,10 +24,10 @@ client.on('message', async msg =>{
             msg.channel.send(":3")
         }
     }
-    if(msg.content.startsWith(prefix + "owo")) {
+    if(msg.content.startsWith(prefix+"owo") && msg.content.length === 5) {
         uwuowo();
     }
-    if(msg.content.startsWith(prefix+"uwu")) {
+    if(msg.content.startsWith(prefix+"uwu") && msg.content.length === 5) {
         uwuowo();
     }
 })

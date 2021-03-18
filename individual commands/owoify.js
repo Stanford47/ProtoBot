@@ -10,11 +10,11 @@ client.on('message', async msg => {
         return
     
     }
- if(msg.content.startsWith("p!owoify" && !msg.content)) {
-     msg.channel.send(owo.translate("what do you want me to owoify for you?"))
- } else if(msg.content.startsWith("p!owoify" && msg.content)) {
+    if(msg.content.length < 9 && msg.content.startsWith("p!owoify")) {
+        msg.channel.send(owo.translate("give me something to owoify"))
+    }else if(msg.content.startsWith("p!owoify" && msg.content)) {
     let owoification = msg.content
-    msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
-} 
+    msg.channel.send(owo.translate(owoification.replace("p!owoify", "** **")))
+}
 });
 client.login(botToken)

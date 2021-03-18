@@ -7,14 +7,16 @@ const {
     prefix,
 } = require("./config.json")
 client.on('ready', () => {
-    client.user.setActivity("owo", {
-        type:"STREAMING",
-        url:"https://www.youtube.com/watch?v=rSbiMQ-0Pp4"
+    client.user.setActivity("for more ram", {
+        type:"WATCHING",
     });
     console.log(owo('I am ready :)'));
 });
 client.on('message', async msg => {
     if(msg.author.bot) {
+        return
+    }
+    if(!msg.content.startsWith(prefix)) {
         return
     }
     if(msg.content.startsWith(prefix+"test")) {
@@ -29,7 +31,6 @@ client.on('message', async msg => {
         {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
         {name:"**invite**", value:owo.translate("i give you my invite link so that you can put me in your server")},
         {name:"||**horknee**||", value:"||**do p!horknee help for the availiable commands for this**||"},
-        {name:"**music** (not working)", value:owo.translate("**do p!music-help for the availiable commands for this**")},
         {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
     )
     .setFooter(owo.translate("hello there friend!"))
@@ -38,16 +39,21 @@ client.on('message', async msg => {
     msg.channel.send(owo.translate("help? You want help about me? Ok! here you go!"))
         msg.channel.send(coolembed)
     }
-    if(msg.content.startsWith(prefix+"owoify")) {
-        let owoification = msg.content
-        msg.channel.send(owo.translate(owoification.replace("p!owoify", "")))
-    }
+    if(!msg.content.includes(prefix+"owoify")) {
+        return
+    }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
+        msg.channel.send(owo.translate("give me something to owoify"))
+    }else if(msg.content.startsWith("p!owoify" && msg.content)) {
+    let owoification = msg.content
+    msg.channel.send(owo.translate(owoification.replace(prefix+"owoify", "** **")))
+    
+}
     const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V9.1")
+    .setTitle("ProtoBot V10.2")
     .setDescription("Most recent changes")
     .addFields (
         {name:"**New Commands!**", value:"nothing..."},
-        {name:"**Changes!**", value:"fixed some bugs and did some other miscellaneous tasks. I also renamed a few commands for ease of use purposes"}
+        {name:"**Changes!**", value:"fixed a bug that would owoify any text that is connected to p!"}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -72,7 +78,6 @@ if(msg.content.startsWith(prefix+"invite")) {
     msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
 }
 if(msg.content.startsWith(prefix+"copypasta")) {
-    console.log("horny user detected!");
     msg.channel.send(owo.translate("OwO looks like someone is horny"));
     msg.channel.send(owo.translate("Rawr x3 nuzzles how are you pounces on you you're so warm o3o notices you have a bulge o: someone's happy ;) nuzzles your necky wecky~ murr~ hehehe rubbies your bulgy wolgy you're so big :oooo rubbies more on your bulgy wolgy it doesn't stop growing ·///· kisses you and lickies your necky daddy likies (; nuzzles wuzzles I hope daddy really likes $: wiggles butt and squirms I want to see your big daddy meat~ wiggles butt I have a little itch o3o wags tail can you please get my itch~ puts paws on your chest nyea~ its a seven inch itch rubs your chest can you help me pwease squirms pwetty pwease sad face I need to be punished runs paws down your chest and bites lip like I need to be punished really good~ paws on your bulge as I lick my lips I'm getting thirsty. I can go for some milk unbuttons your pants as my eyes glow you smell so musky :v licks shaft mmmm~"));
 }
@@ -175,10 +180,10 @@ const secretEmbed = new Discord.MessageEmbed()
             msg.channel.send(":3")
         }
     }
-    if(msg.content.startsWith(prefix+"owo")) {
+    if(msg.content.startsWith(prefix+"owo") && msg.content.length === 5) {
         uwuowo();
     }
-    if(msg.content.startsWith(prefix+"uwu")) {
+    if(msg.content.startsWith(prefix+"uwu") && msg.content.length === 5) {
         uwuowo();
     }
 });

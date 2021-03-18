@@ -7,9 +7,8 @@ const {
     prefix,
 } = require('../main script/config.json');
 client.on('ready', () =>{
-    client.user.setActivity("owo", {
-        type:"STREAMING",
-        url:"https://www.youtube.com/watch?v=rSbiMQ-0Pp4"
+    client.user.setActivity("scanning for problems... do not prompt", {
+        type:"CUSTOM_STATUS",
     });
     console.log('I am ready')
 });

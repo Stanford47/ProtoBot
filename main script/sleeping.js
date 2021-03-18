@@ -5,9 +5,12 @@ const client = new Discord.Client();
 const {
     botToken,
     prefix,
-} = require("../config.json")
+} = require("./config.json")
 client.on('ready', () => {
     console.log(owo('I am ready :)'));
+    client.user.setActivity("zzz.js", {
+        type:"WATCHING",
+    });
 });
 client.on('message', async msg => {
     if(msg.author.bot) {
