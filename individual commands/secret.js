@@ -23,6 +23,6 @@ client.on('message', async msg =>{
     .setFooter("h is best letter!")
         if(msg.content.startsWith(prefix+"secret")) {
             msg.channel.send(secretEmbed)
-        }
+        }   
 });
 client.login(botToken)

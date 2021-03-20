@@ -39,16 +39,7 @@ client.on('message', async msg => {
     msg.channel.send(owo.translate("help? You want help about me? Ok! here you go!"))
         msg.channel.send(coolembed)
     }
-    if(!msg.content.includes(prefix+"owoify")) {
-        return
-    }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
-        msg.channel.send(owo.translate("give me something to owoify"))
-    }else if(msg.content.startsWith("p!owoify" && msg.content)) {
-    let owoification = msg.content
-    msg.channel.send(owo.translate(owoification.replace(prefix+"owoify", "** **")))
-    
-}
-    const changedEmbed = new Discord.MessageEmbed()
+  const changedEmbed = new Discord.MessageEmbed()
     .setTitle("ProtoBot V10.2")
     .setDescription("Most recent changes")
     .addFields (
@@ -74,7 +65,7 @@ if(msg.content.startsWith(prefix+"horknee help")) {
     msg.channel.send(horkneeHelp)
 }
 if(msg.content.startsWith(prefix+"invite")) {
-    msg.channel.send(owo.translate("here\'s the link so you can invite me to your server!"))
+    msg.channel.send(owo.translate("here\'s the link so you can invite me to your server"))
     msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
 }
 if(msg.content.startsWith(prefix+"copypasta")) {
@@ -186,12 +177,22 @@ const secretEmbed = new Discord.MessageEmbed()
     if(msg.content.startsWith(prefix+"uwu") && msg.content.length === 5) {
         uwuowo();
     }
+    if(!msg.content.includes(prefix+"owoify")) {
+        return
+    }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
+        msg.channel.send(owo.translate("give me something to owoify"))
+    }else if(msg.content.startsWith("p!owoify" && msg.content)) {
+    let owoification = msg.content
+    msg.channel.send(owo.translate(owoification.replace(prefix+"owoify", "** **")))
+    //always keep this on bottom
+}
 });
 client.login(botToken)
 //list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507
 //btw the cool people are people that helped in some way,shape, or form
 //yes i know i can use the multi-line comments
 //made by Stanford47#6558
+//rename bot to gorilla smile on 1/5/2021
 /*
   |==============================|
   |=  ++++++   +   +   +++++++  =|
