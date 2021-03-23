@@ -7,7 +7,7 @@ const {
     prefix,
 } = require("./config.json")
 client.on('ready', () => {
-    client.user.setActivity("for more ram", {
+    client.user.setActivity("you through your window >:3", {
         type:"WATCHING",
     });
     console.log(owo('I am ready :)'));
@@ -24,7 +24,7 @@ client.on('message', async msg => {
     }
     const coolembed = new Discord.MessageEmbed()
     .setTitle(owo.translate("All of my commands in one place"))
-    .setDescription(owo.translate("**remember my prefix is:**" + "__** p!**__"))
+    .setDescription(owo.translate("**remember my prefix is:**" + "__**p!**__"))
     .addFields(
         {name:"**test**", value:owo.translate("use this to test if i am alive")},
         {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
@@ -40,11 +40,11 @@ client.on('message', async msg => {
         msg.channel.send(coolembed)
     }
   const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V10.2")
+    .setTitle("ProtoBot V11")
     .setDescription("Most recent changes")
     .addFields (
-        {name:"**New Commands!**", value:"nothing..."},
-        {name:"**Changes!**", value:"fixed a bug that would owoify any text that is connected to p!"}
+        {name:"**New Commands!**", value:"added secret commands because i wanted to"},
+        {name:"**Changes!**", value:"no more bugs :)"}
     )
     .setFooter("OwO")
     .setTimestamp()
@@ -154,7 +154,8 @@ const secretEmbed = new Discord.MessageEmbed()
 .setDescription("this is a secret dont tell anyone!!")
 .addFields(
     {name:"die", value:owo.translate("please don\'t do this :(")},
-    {name:"uwu", value:owo.translate(":)")}
+    {name:"uwu", value:owo.translate(":3")},
+    {name:"h or j", value:owo.translate("letters")}
 )
 .setTimestamp()
 .setFooter("h is best letter!")
@@ -162,7 +163,7 @@ const secretEmbed = new Discord.MessageEmbed()
         msg.channel.send(secretEmbed)
     }
     function uwuowo() {
-        let uwurng = Math.floor((Math.random() *3)+1)
+        let uwurng = Math.floor((Math.random() *2)+1)
         if(uwurng === 1) {
             msg.channel.send("uwu")
         } else if(uwurng === 2) {
@@ -177,6 +178,21 @@ const secretEmbed = new Discord.MessageEmbed()
     if(msg.content.startsWith(prefix+"uwu") && msg.content.length === 5) {
         uwuowo();
     }
+    function jrng() {
+        let Jrng = Math.floor(Math.random() *2)
+        if(Jrng === 1) {
+            msg.channel.send("racc says, \"J is objectively the best letter\"")
+        } else if(Jrng === 0) {  
+            msg.channel.send(owo.translate("J is not as good as h :)"));
+        }
+        }
+    if(msg.content.startsWith(prefix+"j") || msg.content.startsWith(prefix+"J")) {
+        jrng();
+    }
+    if(msg.content.startsWith(prefix+"h") && !msg.content.includes("help")|| msg.content.startsWith(prefix+"H")) {
+        msg.channel.send(owo.translate("h is pretty cool if you ask me :D"));
+    }
+    //lol
     if(!msg.content.includes(prefix+"owoify")) {
         return
     }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
@@ -188,11 +204,11 @@ const secretEmbed = new Discord.MessageEmbed()
 }
 });
 client.login(botToken)
-//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507
+//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507, Blanket Boi#6921
 //btw the cool people are people that helped in some way,shape, or form
 //yes i know i can use the multi-line comments
 //made by Stanford47#6558
-//rename bot to gorilla smile on 1/5/2021
+//rename bot to gorilla smile on 1/4/2021
 /*
   |==============================|
   |=  ++++++   +   +   +++++++  =|
@@ -211,4 +227,9 @@ client.login(botToken)
   OOOOOO         OOOO
   OOOOOO        OOOOO
   OOOOOO       OOOOOO
+*/
+/* list of stuff to do later:
+- add more to A03
+- add another n command
+- fix bugs and grammar mistakes
 */
