@@ -5,11 +5,8 @@ const client = new Discord.Client();
 const {
     botToken,
     prefix,
-} = require("./config.json")
+} = require("../devtools/json/config.json")
 client.on('ready', () => {
-    client.user.setActivity("you through your window >:3", {
-        type:"WATCHING",
-    });
     console.log(owo('I am ready :)'));
 });
 client.on('message', async msg => {
@@ -189,7 +186,7 @@ const secretEmbed = new Discord.MessageEmbed()
     if(msg.content.startsWith(prefix+"j") || msg.content.startsWith(prefix+"J")) {
         jrng();
     }
-    if(msg.content.startsWith(prefix+"h") && !msg.content.includes("help")|| msg.content.startsWith(prefix+"H")) {
+    if(msg.content.startsWith(prefix+"h") && msg.content.length === 3 || msg.content.startsWith(prefix+"H")) {
         msg.channel.send(owo.translate("h is pretty cool if you ask me :D"));
     }
     //lol
@@ -229,7 +226,7 @@ client.login(botToken)
   OOOOOO       OOOOOO
 */
 /* list of stuff to do later:
-- add more to A03
 - add another n command
-- fix bugs and grammar mistakes
+- make dot command
 */
+//maybe add devtools to this later...

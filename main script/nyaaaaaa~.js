@@ -5,11 +5,9 @@ const client = new Discord.Client()
 const {
     botToken,
     prefix,
-} = require('../main script/config.json');
+} = require('../devtools/json/config.json');
 client.on('ready', () =>{
-    client.user.setActivity("scanning for problems... do not prompt", {
-        type:"CUSTOM_STATUS",
-    });
-    console.log('I am ready')
+    console.log("ready")
+    client.user.setActivity("Changed-special", {type:"PLAYING"})
 });
 client.login(botToken)

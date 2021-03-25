@@ -31,8 +31,24 @@ function inquiryYG() {
         }
         
     }
-if(msg.content.startsWith("p!horknee-yoff")) {
-    inquiryYG();
+    function Ysearch() {
+    let contentIDYf = msg.content
+    if(msg.content.includes(Number)) {
+        let msgcontent = msg.content.Number
+        console.log(msgcontent)
+        msg.channel.send(msgcontent)
+    } else {
+        msg.channel.send("that didnt work")
+    }
+}
+if(msg.content.startsWith("p!yoff") && msg.content.includes("search") && !msg.content.includes(Number)) {
+    msg.channel.send("what is the id of the content you want me to send")
+} else if((msg.content.startsWith("p!yoff") && msg.content.includes("search") && msg.content.includes(Number))) {
+   
 }
 });
+if(msg.content.startsWith("p!yoff") && msg.content.includes("search")) {
+ Ysearch();
+}
+
 client.login(botToken)
