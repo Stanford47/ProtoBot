@@ -1,4 +1,3 @@
-'use strict';
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -17,57 +16,38 @@ client.on('message', async msg => {
         return
     }
     if(msg.content.startsWith(prefix+"test")) {
-        msg.channel.send(owo("hello yes i am here, i work"))
+        msg.channel.send(owo.translate("hello yes i am here, i work"))
     }
     const coolembed = new Discord.MessageEmbed()
     .setTitle(owo.translate("All of my commands in one place"))
-    .setDescription(owo.translate("**remember my prefix is:**" + "__**p!**__"))
+    .setDescription(owo.translate("**my prefix is:**" + "__**p!**__"))
     .addFields(
         {name:"**test**", value:owo.translate("use this to test if i am alive")},
         {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
         {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
         {name:"**invite**", value:owo.translate("i give you my invite link so that you can put me in your server")},
-        {name:"||**horknee**||", value:"||**do p!horknee help for the availiable commands for this**||"},
         {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
     )
     .setFooter(owo.translate("hello there friend!"))
     .setTimestamp()
     if(msg.content.startsWith(prefix+"help")) {
-    msg.channel.send(owo.translate("help? You want help about me? Ok! here you go!"))
         msg.channel.send(coolembed)
     }
   const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V11")
-    .setDescription("Most recent changes")
+    .setTitle("ProtoBot V12")
+    .setDescription("the biggest update (coding wise)")
     .addFields (
-        {name:"**New Commands!**", value:"added secret commands because i wanted to"},
-        {name:"**Changes!**", value:"no more bugs :)"}
+        {name:"**New Commands!**", value:"no new commands"},
+        {name:"**Changes!**", value:"a lot of changes have happened in the code, also something has been done to a command for april fools 8)"}
     )
     .setFooter("OwO")
     .setTimestamp()
     if(msg.content.startsWith(prefix+"changelog")) {
         msg.channel.send(changedEmbed);
     }
-    const horkneeHelp = new Discord.MessageEmbed()
-.setTitle("Horknee Help")
-.setDescription("why would you want these...?")
-.addFields (
-    {name:"**copypasta**", value:owo.translate("I will say a cool copypasta owo")},
-    {name:"||**yoff**||", value:owo.translate("||lets be honest, its kinda obvious what this does||")}
-)
-.setFooter("òwó")
-.setTimestamp()
-if(msg.content.startsWith(prefix+"horknee help")) {
-    msg.channel.send(owo.translate("ok then..."))
-    msg.channel.send(horkneeHelp)
-}
 if(msg.content.startsWith(prefix+"invite")) {
     msg.channel.send(owo.translate("here\'s the link so you can invite me to your server"))
     msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
-}
-if(msg.content.startsWith(prefix+"copypasta")) {
-    msg.channel.send(owo.translate("OwO looks like someone is horny"));
-    msg.channel.send(owo.translate("Rawr x3 nuzzles how are you pounces on you you're so warm o3o notices you have a bulge o: someone's happy ;) nuzzles your necky wecky~ murr~ hehehe rubbies your bulgy wolgy you're so big :oooo rubbies more on your bulgy wolgy it doesn't stop growing ·///· kisses you and lickies your necky daddy likies (; nuzzles wuzzles I hope daddy really likes $: wiggles butt and squirms I want to see your big daddy meat~ wiggles butt I have a little itch o3o wags tail can you please get my itch~ puts paws on your chest nyea~ its a seven inch itch rubs your chest can you help me pwease squirms pwetty pwease sad face I need to be punished runs paws down your chest and bites lip like I need to be punished really good~ paws on your bulge as I lick my lips I'm getting thirsty. I can go for some milk unbuttons your pants as my eyes glow you smell so musky :v licks shaft mmmm~"));
 }
 function RNGfunct() {
     let rng = Math.floor(Math.random() *100000000001);
@@ -75,30 +55,6 @@ function RNGfunct() {
     }
     if(msg.content.startsWith(prefix+'rng')) {
           RNGfunct();
-    }
-    function inquiryYG() {
-        let selectionRNG = Math.round((Math.random() *2))
-        let iyg = Math.floor(Math.random() *2623476) +12426
-        let post = 'https://e621.net/posts/' + iyg + '?q=set%3Abestfavorites'
-        let iygsecondary = Math.floor((Math.random() *1080571) +22)
-        let secondarypost = 'https://e621.net/posts/' + iygsecondary + '?tags=set%3Abest_of_e621'
-        if(selectionRNG < 1) {
-            selectionRNG = selectionRNG + 1
-        }
-            if(!msg.channel.nsfw) {
-                msg.channel.send(owo.translate("I cannot send nsfw posts in a non-nsfw channel..."))
-            } else {
-                msg.channel.send(owo.translate("OwO looks like someone is very horny"))
-               if(selectionRNG === 1) {
-                   msg.channel.send(post)
-               } else if(selectionRNG === 2) {
-                   msg.channel.send(secondarypost)
-               }
-            }
-            
-        }
-    if(msg.content.startsWith(prefix+"yoff")) {
-        inquiryYG();
     }
 function fdRNG() {
     let rngF = Math.floor(Math.random() *101);
@@ -132,8 +88,14 @@ if(msg.content.startsWith(prefix+"misc-help")) {
     msg.channel.send(mischelpEmbed)
 }
 function die() {
-    let dietextrng = Math.floor((Math.random()*5) +1)
-    if(dietextrng === 4) {
+    let dietextrng = Math.floor((Math.random()*1000)+1)
+    let dietextrng2 = Math.floor((Math.random()*5) +1)
+    if(dietextrng < 1000) {
+    if(dietextrng2 === 6) {
+        msg.channel.send(":(")
+    }else if(dietextrng === 5) {
+        msg.channel.send("\\*sad protogen noises\\*")
+    } else if(dietextrng === 4) {
         msg.channel.send(owo.translate("thats not nice :("))
     } else if(dietextrng === 3) {
         msg.channel.send(owo.translate("no I won\'t"))
@@ -142,6 +104,22 @@ function die() {
     } else if(dietextrng === 1) {
         msg.channel.send(owo.translate("bad!"))
     }
+} else if(dietextrng === 1000) {
+    const rngmessageembed = new Discord.MessageEmbed()
+    .setTitle("** **")
+    .setDescription("** **")
+    .addFields(
+        {name:"** **", value:"DiscordAPIError: Cannot send an empty message"},
+        {name:"** **", value:"at RequestHandler.execute (C:/Users/user1/ProtoBot/node_modules/discord.js/src/rest/RequestHandler.js:154:18"},
+        {name:"** **", value:"at processTicksAndRejections (node:internal/process/task_queues:94:5)"},
+        {name:"** **", value:"at async RequestHandler.push (C:/Users/user1/ProtoBot/node_modules/discord.js/src/rest/RequestHandler.js:39:14)"}
+    )
+    .setTimestamp()
+    .setFooter("** **")
+    msg.channel.send(owo.translate("no im not goi-"));
+    msg.channel.send(rngmessageembed);
+    msg.channel.send("")
+}
 }
 if(msg.content.startsWith(prefix+"die")) {
     die();
@@ -202,11 +180,12 @@ const secretEmbed = new Discord.MessageEmbed()
 });
 client.login(botToken)
 //list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507, Blanket Boi#6921
-//btw the cool people are people that helped in some way,shape, or form
+//btw the cool people are people that helped in some way
 //yes i know i can use the multi-line comments
 //made by Stanford47#6558
 //rename bot to gorilla smile on 1/4/2021
 /*
+  --------------------------------
   |==============================|
   |=  ++++++   +   +   +++++++  =|
   |=  +        +   +         +  =|
@@ -214,7 +193,7 @@ client.login(botToken)
   |=       +       +         +  =|
   |=  ++++++       +         +  =|
   |==============================|
-  
+  --------------------------------
   OOOOOO       OOOOOO
   OOOOOO        OOOOO
   OOOOOO         OOOO
@@ -226,7 +205,6 @@ client.login(botToken)
   OOOOOO       OOOOOO
 */
 /* list of stuff to do later:
-- add another n command
-- make dot command
+-nothing at the moment...
 */
 //maybe add devtools to this later...

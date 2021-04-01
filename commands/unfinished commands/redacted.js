@@ -2,7 +2,10 @@
 const owo = require('@zuzak/owo')
 const Discord = require('discord.js')
 const client = new Discord.Client();
-const botToken = "ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.wdMZSo0q1DYNjnkCszd89qRJ2ng"
+const {
+    botToken,
+    prefix,
+} = require("../../devtools/json/config.json")
 client.on('ready', () => {
     console.log(owo("I am ready"))
 });
@@ -31,24 +34,17 @@ function inquiryYG() {
         }
         
     }
-    function Ysearch() {
-    let contentIDYf = msg.content
-    if(msg.content.includes(Number)) {
-        let msgcontent = msg.content.Number
-        console.log(msgcontent)
-        msg.channel.send(msgcontent)
-    } else {
-        msg.channel.send("that didnt work")
+    function searchingfory() {
+        let ypicked = msg.content;
+        if(msg.content.includes()) {
+            msg.channel.send("b")
+        }
     }
-}
-if(msg.content.startsWith("p!yoff") && msg.content.includes("search") && !msg.content.includes(Number)) {
-    msg.channel.send("what is the id of the content you want me to send")
-} else if((msg.content.startsWith("p!yoff") && msg.content.includes("search") && msg.content.includes(Number))) {
-   
-}
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("yoff") || msg.content.endsWith("yiff")) {
+        inquiryYG();
+    }
+    if(msg.content.startsWith(prefix) && msg.content.includes("yoff") && msg.content.endsWith(Number)) {
+        searchingfory();
+    }
 });
-if(msg.content.startsWith("p!yoff") && msg.content.includes("search")) {
- Ysearch();
-}
-
 client.login(botToken)

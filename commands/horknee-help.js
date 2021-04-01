@@ -1,4 +1,3 @@
-'use strict'
 const owo = require('@zuzak/owo')
 const Discord = require('discord.js')
 const client = new Discord.Client();
@@ -12,14 +11,14 @@ if(msg.author.bot) {
 }
 const horkneeHelp = new Discord.MessageEmbed()
 .setTitle("Horknee Help")
-.setDescription("when specifying the command you want, put a **-** between the two words (eg. p!horknee-copypasta)")
+.setDescription("...")
 .addFields (
     {name:"**copypasta**", value:owo.translate("I will say a cool copypasta owo")},
     {name:"||**yoff**||", value:owo.translate("||lets be honest, its kinda obvious what this does||")}
 )
 .setFooter("òwó")
 .setTimestamp()
-if(msg.content.startsWith("p!help-horknee")) {
+if(msg.content.startsWith("p!horknee")) {
     msg.channel.send(owo.translate("ok then..."))
     msg.channel.send(horkneeHelp)
 }

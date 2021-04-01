@@ -5,7 +5,7 @@ const client = new Discord.Client()
 const {
     prefix,
     botToken,
-} = require("../main script/config.json");
+} = require("../devtools/json/config.json");
 client.on('ready', () => {
     console.log(owo("I am ready"))
 });
@@ -14,8 +14,12 @@ client.on('message', async msg =>{
         return
     }
     function die() {
-        let dietextrng = Math.floor((Math.random()*5) +1)
-        if(dietextrng === 4) {
+        let dietextrng = Math.floor((Math.random()*6) +1)
+        if(dietextrng === 6) {
+            msg.channel.send(":(")
+        }else if(dietextrng === 5) {
+            msg.channel.send("\\*sad protogen noises\\*")
+        } else if(dietextrng === 4) {
             msg.channel.send(owo.translate("thats not nice :("))
         } else if(dietextrng === 3) {
             msg.channel.send(owo.translate("no I won\'t"))

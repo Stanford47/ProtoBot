@@ -1,4 +1,3 @@
-'use strict'
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client()
@@ -8,6 +7,6 @@ const {
 } = require('../devtools/json/config.json');
 client.on('ready', () =>{
     console.log("ready")
-    client.user.setActivity("Changed-special", {type:"PLAYING"})
+    client.user.setActivity("gaem", {type:"PLAYING"})
 });
 client.login(botToken)
