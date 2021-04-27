@@ -18,32 +18,35 @@ client.on('message', async msg => {
     if(msg.content.startsWith(prefix+"test")) {
         msg.channel.send(owo.translate("hello yes i am here, i work"))
     }
-    const coolembed = new Discord.MessageEmbed()
-    .setTitle(owo.translate("All of my commands in one place"))
-    .setDescription(owo.translate("**my prefix is:**" + "__**p!**__"))
+    const helpEmbed = new Discord.MessageEmbed()
+    .setColor('#438D80')
+    .setTitle("Help")
+    .setDescription(owo.translate("remember that my prefix is " + prefix))
     .addFields(
-        {name:"**test**", value:owo.translate("use this to test if i am alive")},
-        {name:"**help**", value:owo.translate("the command you are using right now. this will give you a list of all of my commands!")},
-        {name:"**changelog**", value:owo.translate("shows the most recent changes to me")},
-        {name:"**invite**", value:owo.translate("i give you my invite link so that you can put me in your server")},
-        {name:"**misc**", value:owo.translate("just other random commands that I was programmed to do. remember if you have any questions, ask <@398758748904226836>!") }
+        {name:"help", value:owo.translate("this is the command that you are using right now. shows a general description of most of the commands"), inline:true},
+        {name:"changelog", value:owo.translate("this shows the most recent changes to me"), inline:true},
+        {name:"invite", value:owo.translate("gives you a link to invite me to your server"), inline:true},
+        {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true},
+        {name:"||nsfw||", value:" ", inline:true}
     )
-    .setFooter(owo.translate("hello there friend!"))
+    .setFooter(":3")
     .setTimestamp()
-    if(msg.content.startsWith(prefix+"help")) {
-        msg.channel.send(coolembed)
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("help")) {
+        msg.channel.send(helpEmbed);
     }
-  const changedEmbed = new Discord.MessageEmbed()
-    .setTitle("ProtoBot V12")
-    .setDescription("the biggest update (coding wise)")
-    .addFields (
-        {name:"**New Commands!**", value:"no new commands"},
-        {name:"**Changes!**", value:"a lot of changes have happened in the code, also something has been done to a command for april fools 8)"}
+    const changedEmbed = new Discord.MessageEmbed()
+    .setColor("#34eb67")
+    .setTitle("V13")
+    .setDescription("most recent changes")
+    .addFields(
+        {name:"bugfixes", value:"no bugs found :)"},
+        {name:"new commands", value:"new secret command"},
+        {name:"other additions", value:"remade some of the embeds in certain commands, removed the token from some of the older commands, added response when you only say the bots prefix and no command after"}
     )
-    .setFooter("OwO")
+    .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
-    if(msg.content.startsWith(prefix+"changelog")) {
-        msg.channel.send(changedEmbed);
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("changelog")) {
+        msg.channel.send(changedEmbed)
     }
 if(msg.content.startsWith(prefix+"invite")) {
     msg.channel.send(owo.translate("here\'s the link so you can invite me to your server"))
@@ -88,10 +91,8 @@ if(msg.content.startsWith(prefix+"misc-help")) {
     msg.channel.send(mischelpEmbed)
 }
 function die() {
-    let dietextrng = Math.floor((Math.random()*1000)+1)
-    let dietextrng2 = Math.floor((Math.random()*5) +1)
-    if(dietextrng < 1000) {
-    if(dietextrng2 === 6) {
+    let dietextrng = Math.floor((Math.random()*5) +1)
+    if(dietextrng === 6) {
         msg.channel.send(":(")
     }else if(dietextrng === 5) {
         msg.channel.send("\\*sad protogen noises\\*")
@@ -104,22 +105,6 @@ function die() {
     } else if(dietextrng === 1) {
         msg.channel.send(owo.translate("bad!"))
     }
-} else if(dietextrng === 1000) {
-    const rngmessageembed = new Discord.MessageEmbed()
-    .setTitle("** **")
-    .setDescription("** **")
-    .addFields(
-        {name:"** **", value:"DiscordAPIError: Cannot send an empty message"},
-        {name:"** **", value:"at RequestHandler.execute (C:/Users/user1/ProtoBot/node_modules/discord.js/src/rest/RequestHandler.js:154:18"},
-        {name:"** **", value:"at processTicksAndRejections (node:internal/process/task_queues:94:5)"},
-        {name:"** **", value:"at async RequestHandler.push (C:/Users/user1/ProtoBot/node_modules/discord.js/src/rest/RequestHandler.js:39:14)"}
-    )
-    .setTimestamp()
-    .setFooter("** **")
-    msg.channel.send(owo.translate("no im not goi-"));
-    msg.channel.send(rngmessageembed);
-    msg.channel.send("")
-}
 }
 if(msg.content.startsWith(prefix+"die")) {
     die();
@@ -147,10 +132,7 @@ const secretEmbed = new Discord.MessageEmbed()
             msg.channel.send(":3")
         }
     }
-    if(msg.content.startsWith(prefix+"owo") && msg.content.length === 5) {
-        uwuowo();
-    }
-    if(msg.content.startsWith(prefix+"uwu") && msg.content.length === 5) {
+    if (msg.content.startsWith(prefix) && msg.content.endsWith("owo") || msg.content.endsWith("uwu") && msg.content.length === 5) {
         uwuowo();
     }
     function jrng() {
@@ -168,6 +150,30 @@ const secretEmbed = new Discord.MessageEmbed()
         msg.channel.send(owo.translate("h is pretty cool if you ask me :D"));
     }
     //lol
+    function what(msg1, msg2, msg3, msg4, msgrng) {
+        msg1 = owo.translate("hello")
+        msg2 = owo.translate("huh?")
+        msg3 = owo.translate("you need me?")
+        msg4 = owo.translate("?")
+        msgrng = Math.round((Math.random() *3) +1)
+        switch (msgrng) {
+            case 4:
+                msg.channel.send(msg1)
+                break;
+            case 3:
+                msg.channel.send(msg2)
+                break;
+            case 2:
+                msg.channel.send(msg3)
+                break;
+            case 1:
+                msg.channel.send(msg4)
+                break;
+        }
+    }
+    if(msg.content.startsWith(prefix) && msg.content.length === 2) {
+        what();
+    }
     if(!msg.content.includes(prefix+"owoify")) {
         return
     }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
@@ -179,11 +185,10 @@ const secretEmbed = new Discord.MessageEmbed()
 }
 });
 client.login(botToken)
-//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507, Blanket Boi#6921
+//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507, Where am I?#3529, cfop#2697, Vahzen#9637
 //btw the cool people are people that helped in some way
 //yes i know i can use the multi-line comments
-//made by Stanford47#6558
-//rename bot to gorilla smile on 1/4/2021
+//made by Stanford47#5621
 /*
   --------------------------------
   |==============================|

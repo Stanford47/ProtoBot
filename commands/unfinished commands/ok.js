@@ -1,4 +1,3 @@
-'use strict'
 const owo = require("@zuzak/owo");
 const Discord = require("discord.js");
 const {

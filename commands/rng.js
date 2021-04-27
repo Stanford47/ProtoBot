@@ -17,4 +17,5 @@ client.on('message', async msg => {
           RNGfunct();
     }
 });
-client.login('ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc')
+client.login("")
+//token used to be in here

@@ -16,15 +16,19 @@ client.on('message', async msg =>{
     }
     if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("seconds")) {
         uptime = uptime / 1000
-        msg.channel.send(uptime+" seconds")
-    } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes") || msg.content.endsWith("mins")) {
+        Math.floor(uptime)
+        msg.channel.send(uptime + " seconds")
+    } else if (msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes") || msg.content.endsWith("mins")) {
         uptime = uptime / 60000
+        Math.floor(uptime)
         msg.channel.send(uptime+" minutes")
     } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("hours")) {
         uptime = uptime / 3600000
+        Math.floor(uptime)
         msg.channel.send(uptime+" hours")
     } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("days")) {
         uptime = uptime / 86400000
+        Math.floor(uptime)
         msg.channel.send(uptime+" days")
     }
     if(msg.content.startsWith(prefix) && msg.content.endsWith("uptimeh")) {

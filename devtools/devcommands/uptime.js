@@ -15,8 +15,8 @@ client.on('message', async msg =>{
     }
     if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("seconds")) {
         uptime = uptime / 1000
-        msg.channel.send(uptime+" seconds")
-    } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes") || msg.content.endsWith("mins")) {
+        msg.channel.send(uptime + " seconds")
+    } else if (msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes") || msg.content.endsWith("mins")) {
         uptime = uptime / 60000
         msg.channel.send(uptime+" minutes")
     } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("hours")) {

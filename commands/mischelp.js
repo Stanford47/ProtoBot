@@ -26,3 +26,4 @@ client.on('message', async msg => {
         msg.channel.send(mischelpEmbed)
     }
 });
+client.login(botToken)

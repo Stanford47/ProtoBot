@@ -7,6 +7,8 @@ const {
 } = require('../devtools/json/config.json');
 client.on('ready', () =>{
     console.log("ready")
-    client.user.setActivity("gaem", {type:"PLAYING"})
+    client.user.setActivity("mango foxy", {
+    type:"WATCHING",
+})
 });
 client.login(botToken)

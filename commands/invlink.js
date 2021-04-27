@@ -2,7 +2,7 @@
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const botToken = 'ODE2MDAzMzI2OTkwMjIxMzcz.YD0oUQ.JImu5Q7CxzJGe5PQllwU5lpFGdc'
+const botToken = '' //token used to be here
 client.on('ready', () => {
     console.log(owo('I am ready :)'));
 });

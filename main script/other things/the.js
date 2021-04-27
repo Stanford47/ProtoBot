@@ -18,18 +18,18 @@ client.on('message', async msg =>{
     if(!msg.content.startsWith(prefix)) {
         return
     }
-const horkneeHelp = new Discord.MessageEmbed()
-.setTitle("Horknee Help")
-.setDescription("...")
-.addFields (
-    {name:"**copypasta**", value:owo.translate("I will say a cool copypasta owo")},
-    {name:"||**yoff**||", value:owo.translate("||lets be honest, its kinda obvious what this does||")}
-)
-.setFooter("òwó")
-.setTimestamp()
-if(msg.content.startsWith(prefix) && msg.content.endsWith("hornknee")) {
-    msg.channel.send(horkneeHelp)
-}
+    const horkneeHelp = new Discord.MessageEmbed()
+    .setColor("#ff48df")
+    .setTitle("nsfw help")
+    .addFields (
+        {name:"**copypasta**", value:owo.translate("I will say a cool copypasta owo"), inline:true},
+        {name:"**yoff**", value:owo.translate("lets be honest, its kinda obvious what this does"), inline:true}
+    )
+    .setFooter("òwó")
+    .setTimestamp()
+    if(msg.content.startsWith(prefix) && msg.content.includes("nsfw") || msg.content.includes("horknee help") || msg.content.includes("nsfw help")) {
+        msg.channel.send(horkneeHelp)
+    }
 function inquiryYG() {
     let selectionRNG = Math.round((Math.random() *2))
     let iyg = Math.floor(Math.random() *2623476) +12426

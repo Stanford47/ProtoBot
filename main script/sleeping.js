@@ -17,12 +17,12 @@ client.on('message', async msg => {
         return
     }
     function msgRNG() {
-        let mrng = Math.floor((Math.random() *8) +1)
+        let mrng = Math.floor((Math.random() *5) +1)
         let rngmsg = mrng
-        if(mrng === 6) {
-            rngmsg = "stop poking me uwu am twying to sweep"
-        }else if(mrng === 5) {
-            rngmsg = "zzz..."
+        if (mrng === 6) {
+            rngmsg = owo.translate("stop poking me uwu am twying to sleep")
+        } else if (mrng === 5) {
+            rngmsg = owo.translate("zzz...")
         }else if(mrng === 4) {
             rngmsg = owo.translate("stoooop im trying to recharge my batteries >:(((((((")
         }else if(mrng === 3) {
