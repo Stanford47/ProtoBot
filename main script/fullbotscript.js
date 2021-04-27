@@ -19,7 +19,7 @@ client.on('message', async msg => {
         msg.channel.send(owo.translate("hello yes i am here, i work"))
     }
     const helpEmbed = new Discord.MessageEmbed()
-    .setColor('#438D80')
+    .setColor('#438d80')
     .setTitle("Help")
     .setDescription(owo.translate("remember that my prefix is " + prefix))
     .addFields(
@@ -27,7 +27,7 @@ client.on('message', async msg => {
         {name:"changelog", value:owo.translate("this shows the most recent changes to me"), inline:true},
         {name:"invite", value:owo.translate("gives you a link to invite me to your server"), inline:true},
         {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true},
-        {name:"||nsfw||", value:" ", inline:true}
+        {name:"||nsfw||", value:owo.translate("||you should know what this is...||"), inline:true}
     )
     .setFooter(":3")
     .setTimestamp()
