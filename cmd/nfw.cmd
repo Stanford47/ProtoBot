@@ -1,2 +1,2 @@
-cd C:\Users\jaelt\ProtoBot\main script\other things
+cd C:\Users\jaelt\ProtoBot\main\other things
 node the.js

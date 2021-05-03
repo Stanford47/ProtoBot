@@ -36,12 +36,12 @@ client.on('message', async msg => {
     }
     const changedEmbed = new Discord.MessageEmbed()
     .setColor("#34eb67")
-    .setTitle("V13")
+    .setTitle("V13.2.1")
     .setDescription("most recent changes")
     .addFields(
-        {name:"bugfixes", value:"no bugs found :)"},
-        {name:"new commands", value:"new secret command"},
-        {name:"other additions", value:"remade some of the embeds in certain commands, removed the token from some of the older commands, added response when you only say the bots prefix and no command after"}
+        {name:"bugfixes", value:"no new bugs found :D"},
+        {name:"new commands", value:"nothing new this time..."},
+        {name:"other additions", value:"remade nsfw command ;)"}
     )
     .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
@@ -87,7 +87,7 @@ const mischelpEmbed = new Discord.MessageEmbed()
 )
 .setFooter("UwU")
 .setTimestamp()
-if(msg.content.startsWith(prefix+"misc-help")) {
+if(msg.content.startsWith(prefix) && msg.content.endsWith("misc-help") || msg.content.endsWith("misc") || msg.content.endsWith("fun")) {
     msg.channel.send(mischelpEmbed)
 }
 function die() {

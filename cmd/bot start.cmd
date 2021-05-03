@@ -1,2 +1,2 @@
-cd C:\Users\jaelt\ProtoBot\main script
+cd C:\Users\jaelt\ProtoBot\main
 node fullbotscript.js
