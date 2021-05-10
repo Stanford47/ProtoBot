@@ -16,8 +16,10 @@ client.on('message', async msg =>{
     if(msg.author.bot) {
         return
     }
+    const basedMSG = new Discord.MessageAttachment()
+    .setFile('C:/Users/jaelt/funni/based.mp4')
     if(msg.content.includes("based on what")) {
-        msg.channel.send("https://cdn.discordapp.com/attachments/697110248204533841/836373713733550170/based.mp4");
+        msg.channel.send(basedMSG);
     }
     function copypastas() {
         let copypastarng = Math.round((Math.random() *1) +1)

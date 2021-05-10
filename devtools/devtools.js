@@ -18,7 +18,7 @@ client.on('message', async msg =>{
         uptime = uptime / 1000
         Math.floor(uptime)
         msg.channel.send(uptime + " seconds")
-    } else if (msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes") || msg.content.endsWith("mins")) {
+    } else if (msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("minutes")) {
         uptime = uptime / 60000
         Math.floor(uptime)
         msg.channel.send(uptime+" minutes")
@@ -32,7 +32,7 @@ client.on('message', async msg =>{
         msg.channel.send(uptime+" days")
     }
     if(msg.content.startsWith(prefix) && msg.content.endsWith("uptimeh")) {
-        msg.channel.send("seconds, minutes(or mins), hours, days");
+        msg.channel.send("seconds, minutes, hours, days");
     }
     if(msg.content.startsWith(prefix) && msg.content.includes("devtools list")) {
         msg.channel.send(dtlist)

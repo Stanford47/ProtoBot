@@ -7,8 +7,8 @@ const {
 } = require('../devtools/json/config.json');
 client.on('ready', () =>{
     console.log("ready")
-    client.user.setActivity("MangoFoxy", {
-    type:"WATCHING",
+    client.user.setActivity("waiting for the day bots get custom statuses :(", {
+    type:"PLAYING",
 })
 });
 client.login(botToken)

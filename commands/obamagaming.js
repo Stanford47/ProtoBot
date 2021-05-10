@@ -17,6 +17,8 @@ client.on('message', async msg =>{
     if(!msg.content.startsWith(prefix)) {
         return
     }
+    /*
+    OLD VER.
     function wowthisissupercoolwhyamimakingthisnamesolonglol(colour, fileType, directory, fileName, fullDir) {
         let colourRNG = Math.round(Math.random() *4);
         let poru = Math.round(Math.random() *2);
@@ -82,7 +84,43 @@ client.on('message', async msg =>{
         if(msg.content.startsWith(prefix) && msg.content.endsWith("yoff") || msg.content.endsWith("yiff")) {
         wowthisissupercoolwhyamimakingthisnamesolonglol();
         }
+        */
+       //NEW VER.
+       function FileSent() {
+
+            //file sorting
+           let fileName = ""
+           let Dir = ""
+
+           //RNGS               
+            let pRNG = Math.round((Math.random()*119)+1)
+            let fRNG = Math.round(Math.random()*74)
+            let PorU = Math.round(Math.random()*2)
+
+           //proto or norm
+           if(PorU == 0) {
+               fileName = "p" + pRNG + ".jpg"
+               Dir = "C:/Users/jaelt/yoff/pics/proto/" + fileName
+           } else {
+                fileName = fRNG + ".jpg"
+                Dir = "C:/Users/jaelt/yoff/pics/unsorted/" + fileName
+           }
+
+           //file attatchment setup
+           let File = new Discord.MessageAttachment()
+           .setFile(Dir)
+
+           //message logic
+           if(!msg.channel.nsfw) {
+               msg.reply(owo.translate("i cant post nsfw in here!"))
+           } else if(msg.channel.nsfw) {
+               msg.channel.send(File)
+           }
+       }
+
+       if(msg.content.startsWith(prefix) && msg.content.endsWith("yoff") || msg.content.endsWith("yiff")) {
+           FileSent();
+       }
 });
 client.login(botToken)
-//holy fucking shit I DID IT YESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-// i have never been so proud but dissapointed in my self before lmao
+//me when i am remaking it again...  ._.

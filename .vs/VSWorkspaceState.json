@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\commands",
     "\\devtools",
-    "\\devtools\\json",
-    "\\main script"
+    "\\devtools\\json"
   ],
-  "SelectedNode": "\\main script\\fullbotscript.js",
+  "SelectedNode": "\\devtools\\json\\config.json",
   "PreviewInSolutionExplorer": false
 }

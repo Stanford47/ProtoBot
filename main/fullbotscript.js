@@ -26,22 +26,21 @@ client.on('message', async msg => {
         {name:"help", value:owo.translate("this is the command that you are using right now. shows a general description of most of the commands"), inline:true},
         {name:"changelog", value:owo.translate("this shows the most recent changes to me"), inline:true},
         {name:"invite", value:owo.translate("gives you a link to invite me to your server"), inline:true},
-        {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true},
-        {name:"||nsfw||", value:owo.translate("||you should know what this is...||"), inline:true}
+        {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true}
     )
     .setFooter(":3")
     .setTimestamp()
-    if(msg.content.startsWith(prefix) && msg.content.endsWith("help")) {
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("help") && !msg.content.includes("horknee") && !msg.content.includes("misc")) {
         msg.channel.send(helpEmbed);
     }
     const changedEmbed = new Discord.MessageEmbed()
     .setColor("#34eb67")
-    .setTitle("V13.2.1")
+    .setTitle("V13.3.2")
     .setDescription("most recent changes")
     .addFields(
-        {name:"bugfixes", value:"no new bugs found :D"},
+        {name:"bugfixes", value:"fixed bug that posted bot\'s uptime when a person would say \"mins\" in their message || fixed bug that didnt allow bot to post fun embed when user would use p!fun"},
         {name:"new commands", value:"nothing new this time..."},
-        {name:"other additions", value:"remade nsfw command ;)"}
+        {name:"other additions", value:"lowered rng number amount from 100,000,000,000 to 1,000,000 || reseperated rng message"}
     )
     .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
@@ -53,35 +52,17 @@ if(msg.content.startsWith(prefix+"invite")) {
     msg.channel.send("https://discord.com/api/oauth2/authorize?client_id=816003326990221373&permissions=2151152704&scope=bot")
 }
 function RNGfunct() {
-    let rng = Math.floor(Math.random() *100000000001);
-     msg.channel.send(owo.translate("here is your random number :) " + rng))
+    let rng = Math.floor(Math.random() *1000000);
+     msg.channel.send(owo.translate("here is your random number :)"))
+     msg.channel.send(rng)
     }
     if(msg.content.startsWith(prefix+'rng')) {
           RNGfunct();
     }
-function fdRNG() {
-    let rngF = Math.floor(Math.random() *101);
-     let userm = msg.mentions.users
-      const fdembed = new Discord.MessageEmbed()
-.setDescription(owo.translate("**furry detector**"))
-.addFields (
-    {name:owo.translate("**calculated furry %**"), value:owo.translate(userm + "is " + rngF + "% furry")}
-)
-.setTimestamp()
-     if(!msg.mentions.users) {
-         msg.channel.send(owo.translate("You need to mention a user when trying this command"))
-     } else {
-        msg.channel.send(fdembed)
-     }
-}
-if(msg.content.startsWith(prefix+"fdetect")) {
-    fdRNG();
-}
 const mischelpEmbed = new Discord.MessageEmbed()
 .setTitle("**Misc. help**")
 .setDescription(owo.translate("Help for other commands"))
 .addFields(
-    {name:"**fdetect** (working but not finished)", value:owo.translate("Calculates the amount a person is a furry")},
     {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
     {name:"**rng**", value:owo.translate("I will give you a random number")}
 )
@@ -106,7 +87,7 @@ function die() {
         msg.channel.send(owo.translate("bad!"))
     }
 }
-if(msg.content.startsWith(prefix+"die")) {
+if(msg.content.startsWith(prefix) && msg.content.endsWith("die")) {
     die();
 }
 const secretEmbed = new Discord.MessageEmbed()
@@ -114,7 +95,7 @@ const secretEmbed = new Discord.MessageEmbed()
 .setDescription("this is a secret dont tell anyone!!")
 .addFields(
     {name:"die", value:owo.translate("please don\'t do this :(")},
-    {name:"uwu", value:owo.translate(":3")},
+    {name:"uwu or owo", value:owo.translate(":3")},
     {name:"h or j", value:owo.translate("letters")}
 )
 .setTimestamp()
@@ -185,7 +166,7 @@ const secretEmbed = new Discord.MessageEmbed()
 }
 });
 client.login(botToken)
-//list of cool people on discord: It'sTheVeam#4823, Itsamedood#5000, tweet#7777, racc#7507, Where am I?#3529, cfop#2697, Vahzen#9637
+//list of cool people on discord: It'sTheVeam#4823, Itsamedood#8424, tweet#7777, racc#1111, Boyfriend#0747, cfop#2697, Vahzen#9637
 //btw the cool people are people that helped in some way
 //yes i know i can use the multi-line comments
 //made by Stanford47#5621
