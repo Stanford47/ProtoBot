@@ -10,6 +10,7 @@ client.on('ready', () =>{
     console.log("ready")
 });
 client.on('message', async msg =>{
+    /*
     let uptime = client.uptime
     if(msg.author.bot) {
         return
@@ -31,8 +32,9 @@ client.on('message', async msg =>{
         Math.floor(uptime)
         msg.channel.send(uptime+" days")
     }
+    */
     if(msg.content.startsWith(prefix) && msg.content.endsWith("uptimeh")) {
-        msg.channel.send("seconds, minutes, hours, days");
+        msg.channel.send("hours, days");
     }
     if(msg.content.startsWith(prefix) && msg.content.includes("devtools list")) {
         msg.channel.send(dtlist)

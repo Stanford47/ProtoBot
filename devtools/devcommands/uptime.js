@@ -9,6 +9,7 @@ client.on('ready', () => {
     console.log("ready");
 });
 client.on('message', async msg =>{
+    /*
     let uptime = client.uptime
     if(msg.author.bot) {
         return
@@ -23,11 +24,14 @@ client.on('message', async msg =>{
         uptime = uptime / 3600000
         msg.channel.send(uptime+" hours")
     } else if(msg.content.startsWith(prefix) && msg.content.includes("uptime") && msg.content.endsWith("days")) {
-        uptime = uptime / 86400000
+        uptime = uptime / 86,400,000
         msg.channel.send(uptime+" days")
     }
     if(msg.content.startsWith(prefix) && msg.content.endsWith("uptimeh")) {
         msg.channel.send("seconds, minutes(or mins), hours, days");
     }
+    */
+   //code obsolete
+   //can be found at the bottom of fullbotscript
 });
 client.login(botToken)

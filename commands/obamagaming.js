@@ -94,7 +94,7 @@ client.on('message', async msg =>{
 
            //RNGS               
             let pRNG = Math.round((Math.random()*119)+1)
-            let fRNG = Math.round(Math.random()*74)
+            let fRNG = Math.round(Math.random()*113)
             let PorU = Math.round(Math.random()*2)
 
            //proto or norm
@@ -103,7 +103,7 @@ client.on('message', async msg =>{
                Dir = "C:/Users/jaelt/yoff/pics/proto/" + fileName
            } else {
                 fileName = fRNG + ".jpg"
-                Dir = "C:/Users/jaelt/yoff/pics/unsorted/" + fileName
+                Dir = "C:/Users/jaelt/yoff/pics/notproto/" + fileName
            }
 
            //file attatchment setup

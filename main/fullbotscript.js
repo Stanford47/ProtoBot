@@ -35,12 +35,12 @@ client.on('message', async msg => {
     }
     const changedEmbed = new Discord.MessageEmbed()
     .setColor("#34eb67")
-    .setTitle("V13.3.2")
+    .setTitle("V14.1")
     .setDescription("most recent changes")
     .addFields(
-        {name:"bugfixes", value:"fixed bug that posted bot\'s uptime when a person would say \"mins\" in their message || fixed bug that didnt allow bot to post fun embed when user would use p!fun"},
-        {name:"new commands", value:"nothing new this time..."},
-        {name:"other additions", value:"lowered rng number amount from 100,000,000,000 to 1,000,000 || reseperated rng message"}
+        {name:"bugfixes", value:"no bugs found :)"},
+        {name:"new commands", value:"no new commands yet"},
+        {name:"other additions", value:"remade owoify to simplify the code"}
     )
     .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
@@ -96,7 +96,8 @@ const secretEmbed = new Discord.MessageEmbed()
 .addFields(
     {name:"die", value:owo.translate("please don\'t do this :(")},
     {name:"uwu or owo", value:owo.translate(":3")},
-    {name:"h or j", value:owo.translate("letters")}
+    {name:"h or j", value:owo.translate("letters")},
+    {name:"tag", value:owo.translate("tag your it!")}
 )
 .setTimestamp()
 .setFooter("h is best letter!")
@@ -124,7 +125,7 @@ const secretEmbed = new Discord.MessageEmbed()
             msg.channel.send(owo.translate("J is not as good as h :)"));
         }
         }
-    if(msg.content.startsWith(prefix+"j") || msg.content.startsWith(prefix+"J")) {
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("j") || msg.content.startsWith(prefix) && msg.content.endsWith("J")) {
         jrng();
     }
     if(msg.content.startsWith(prefix+"h") && msg.content.length === 3 || msg.content.startsWith(prefix+"H")) {
@@ -155,20 +156,40 @@ const secretEmbed = new Discord.MessageEmbed()
     if(msg.content.startsWith(prefix) && msg.content.length === 2) {
         what();
     }
-    if(!msg.content.includes(prefix+"owoify")) {
-        return
-    }else if(msg.content.length < 9 && msg.content.startsWith(prefix+"owoify")) {
-        msg.channel.send(owo.translate("give me something to owoify"))
-    }else if(msg.content.startsWith("p!owoify" && msg.content)) {
-    let owoification = msg.content
-    msg.channel.send(owo.translate(owoification.replace(prefix+"owoify", "** **")))
-    //always keep this on bottom
+    function owoify() {
+        if(msg.content.length < 9) {
+            msg.reply(owo.translate("I cant owoify nothing! give me something to owoify!"))
+        } else {
+            let owoification = msg.content
+            msg.channel.send(owo.translate(owoification.replace(`${prefix}owoify`, ` `)))
+        }
+    }
+    if(msg.content.startsWith(`${prefix}owoify`)) {
+        owoify();
+    }
+    function pbUptime(uptimeMSG) {
+        if(msg.content.startsWith(prefix)) {
+    let botUptime = client.uptime
+    if(msg.content.endsWith("uptime hours")) {
+        uptimeMSG = Math.round(botUptime / 3600000)
+        msg.channel.send(`${uptimeMSG} hours`)
+    } else if (msg.content.endsWith("uptime days")) {
+        uptimeMSG = Math.round(botUptime / 86400000)
+        msg.channel.send(`${uptimeMSG} days`)
+    } else if (msg.content.endsWith("uptime minutes")) {
+        uptimeMSG = Math.round(botUptime / 60000)
+        msg.channel.send(`${uptimeMSG} minutes`)
+    } else if (msg.content.endsWith("uptime seconds")) {
+        uptimeMSG = Math.round(botUptime / 1000) 
+        msg.channel.send(`${uptimeMSG} seconds`)
+    }
+    }
+}
+if(msg.content.startsWith(prefix) && msg.content.includes("uptime")) {
+    pbUptime();
 }
 });
 client.login(botToken)
-//list of cool people on discord: It'sTheVeam#4823, Itsamedood#8424, tweet#7777, racc#1111, Boyfriend#0747, cfop#2697, Vahzen#9637
-//btw the cool people are people that helped in some way
-//yes i know i can use the multi-line comments
 //made by Stanford47#5621
 /*
   --------------------------------
@@ -190,7 +211,3 @@ client.login(botToken)
   OOOOOO        OOOOO
   OOOOOO       OOOOOO
 */
-/* list of stuff to do later:
--nothing at the moment...
-*/
-//maybe add devtools to this later...
