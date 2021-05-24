@@ -35,12 +35,12 @@ client.on('message', async msg => {
     }
     const changedEmbed = new Discord.MessageEmbed()
     .setColor("#34eb67")
-    .setTitle("V14.1")
+    .setTitle("V15.0.1")
     .setDescription("most recent changes")
     .addFields(
-        {name:"bugfixes", value:"no bugs found :)"},
-        {name:"new commands", value:"no new commands yet"},
-        {name:"other additions", value:"remade owoify to simplify the code"}
+        {name:"bugfixes", value:"fixed bug that would kill the bot if p!changelog was said (I accidentally left a field blank)"},
+        {name:"new commands", value:"Rock Paper Scissors added. do p!rps for help."},
+        {name:"other additions", value:"nothing new here..."}
     )
     .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
@@ -64,7 +64,8 @@ const mischelpEmbed = new Discord.MessageEmbed()
 .setDescription(owo.translate("Help for other commands"))
 .addFields(
     {name:"**owoify**", value:owo.translate("i get to have fun and make your text funky OwO")},
-    {name:"**rng**", value:owo.translate("I will give you a random number")}
+    {name:"**rng**", value:owo.translate("I will give you a random number")},
+    {name:"**Rock Paper Scissors**", value:"do p!rps for more info"}
 )
 .setFooter("UwU")
 .setTimestamp()
