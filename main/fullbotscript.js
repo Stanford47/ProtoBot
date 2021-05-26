@@ -26,7 +26,8 @@ client.on('message', async msg => {
         {name:"help", value:owo.translate("this is the command that you are using right now. shows a general description of most of the commands"), inline:true},
         {name:"changelog", value:owo.translate("this shows the most recent changes to me"), inline:true},
         {name:"invite", value:owo.translate("gives you a link to invite me to your server"), inline:true},
-        {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true}
+        {name:"fun", value:owo.translate("this shows some fun and cool commands"), inline:true},
+        
     )
     .setFooter(":3")
     .setTimestamp()
@@ -35,12 +36,12 @@ client.on('message', async msg => {
     }
     const changedEmbed = new Discord.MessageEmbed()
     .setColor("#34eb67")
-    .setTitle("V15.0.1")
+    .setTitle("V15.2")
     .setDescription("most recent changes")
     .addFields(
-        {name:"bugfixes", value:"fixed bug that would kill the bot if p!changelog was said (I accidentally left a field blank)"},
-        {name:"new commands", value:"Rock Paper Scissors added. do p!rps for help."},
-        {name:"other additions", value:"nothing new here..."}
+        {name:"bugfixes", value:"no bugs found :)"},
+        {name:"new commands", value:"added github link (p!github or p!repo or p!repository)"},
+        {name:"other additions", value:"idk why but i put some c++ stuff in the folder ._.  check github repo to see it lol"}
     )
     .setFooter("more info can be found in the GitHub repo :3")
     .setTimestamp()
@@ -189,6 +190,9 @@ const secretEmbed = new Discord.MessageEmbed()
 if(msg.content.startsWith(prefix) && msg.content.includes("uptime")) {
     pbUptime();
 }
+if(msg.content.startsWith(prefix) && msg.content.endsWith("github") || msg.content.startsWith(prefix) && msg.content.endsWith("repository") || msg.content.startsWith(prefix) && msg.content.endsWith("repo")) {
+    msg.channel.send("https://github.com/Stanford47/ProtoBot");
+    }
 });
 client.login(botToken)
 //made by Stanford47#5621

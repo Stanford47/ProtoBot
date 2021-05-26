@@ -1,6 +1,17 @@
 {
     "configurations": [
         {
+            "name": "Run C++ File",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "C:/Program Files/CodeBlocks/MinGW/bin/c++.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
+        },
+        {
             "type": "node-terminal",
             "name": "Create JavaScript Debug Terminal",
             "request": "launch",

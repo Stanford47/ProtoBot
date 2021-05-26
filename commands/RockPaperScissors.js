@@ -13,45 +13,79 @@ client.on('message', async msg => {
 if(msg.author.bot) {
     return
 }
-function ComCalc(Computer) {
-    Computer = Math.round(Math.random()*3)
-    if (msg.content.includes("rock")) {
+    function Com(Computer) {
+        Computer = Math.round(Math.random()*3)
+        
         if(Computer == 0) {
-            Computer = "rock"
-            msg.channel.send("Tie! \n" + Computer + " (ProtoBot)" + " = " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
+            Computer = Math.round(Math.random()*3)
+            if(Computer == 0) {
+                Computer = 'rock'
+            } else if (Computer == 1) {
+                Computer = 'paper'
+            } else if (Computer == 2) {
+                Computer = 'scissors'
+            }
         } else if (Computer == 1) {
-            Computer = "paper"
-            msg.channel.send("I win! \n" + Computer + " (ProtoBot)" + " > " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        } else if (Computer == 2) {
-            Computer = "scissors"
-            msg.channel.send("You win! \n" + Computer + " (ProtoBot)" + " < " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
+            Computer = Math.round((Math.random()*3)-1)
+            if(Computer == -1) {
+                Computer = Computer + 3
+            }
+            if(Computer == 0) {
+                Computer = 'rock'
+            } else if (Computer == 1) {
+                Computer = 'paper'
+            } else if (Computer == 2) {
+                Computer = 'scissors'
+            }
+        }else if (Computer == 2) {
+            Computer = Math.round(Math.random()*3) - Math.round((Math.random()*3)+1)
+            if(Computer == -1) {
+                Computer = Math.round(Math.random()*3)
+            }
+            if(Computer == 0) {
+                Computer = 'rock'
+            } else if (Computer == 1) {
+                Computer = 'paper'
+            } else if (Computer == 2) {
+                Computer = 'scissors'
+            }
         }
-    } else if (msg.content.includes("paper")) {
-        if(Computer == 0) {
-            Computer = "rock"
-            msg.channel.send("You win! \n" + Computer + " (ProtoBot)" + " < " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        } else if (Computer == 1) {
-            Computer = "paper"
-            msg.channel.send("Tie! \n" + Computer + " (ProtoBot)" + " = " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        } else if (Computer == 2) {
-            Computer = "scissors"
-            msg.channel.send("I win! \n" + Computer + " (ProtoBot)" + " > " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        }
-    } else if (msg.content.includes("scissors")) {
-        if(Computer == 0) {
-            Computer = "rock"
-            msg.channel.send("I win! \n" + Computer + " (ProtoBot)" + " > " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        } else if (Computer == 1) {
-            Computer = "paper"
-            msg.channel.send("You win! \n" + Computer + " (ProtoBot)" + " < " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
-        } else if (Computer == 2) {
-            Computer = "scissors"
-            msg.channel.send("Tie! \n" + Computer + " (ProtoBot)" + " = " + msg.content.replace(`${prefix}rps`, "") + ` (${msg.author})`)
+        let player = msg.content
+        player = player.replace("p!rps ", "")
+        if(player === 'rock' && Computer === 'rock' || player === 'paper' && Computer === 'paper' || player === 'scissors' && Computer === 'scissors') {
+            const TieEmbed = new Discord.MessageEmbed()
+            .setColor("#c1d4c4")
+            .setTitle("Tie!")
+            .addFields(
+                {name:"ProtoBot", value:Computer, inline:true},
+                {name:"You", value:player, inline:true}
+            )
+            .setFooter(":|")
+            msg.channel.send(TieEmbed)
+        } else if (player === 'rock' && Computer === 'scissors' || player === 'paper' && Computer === 'rock' || player === "scissors" && Computer === 'paper') {
+            const WinEmbed = new Discord.MessageEmbed()
+            .setColor("#25c059")
+            .setTitle("You win!")
+            .addFields(
+                {name:"ProtoBot", value:Computer, inline:true},
+                {name:"You", value:player, inline:true}
+            )
+            .setFooter(":(")
+            msg.channel.send(WinEmbed)
+        } else if (player === 'rock' && Computer === 'paper' || player === 'paper' && Computer === 'scissors' || player === 'scissors' && Computer === 'rock') {
+            const LoseEmbed = new Discord.MessageEmbed()
+            .setColor("c95555")
+            .setTitle("I win!")
+            .addFields(
+                {name:"ProtoBot", value: Computer, inline:true},
+                {name:"You", value:player, inline:true}
+            )
+            .setFooter(":)")
+            msg.channel.send(LoseEmbed)
         }
     }
-}
 if(msg.content.startsWith(`${prefix}rps rock`) || msg.content.startsWith(`${prefix}rps paper`) || msg.content.startsWith(`${prefix}rps scissors`)) {
- ComCalc();
+    Com();
 } else if (msg.content === `${prefix}rps`) {
     const RPShelp = new Discord.MessageEmbed()
     .setTitle("Rock Paper Scissors Help")
