@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const {
     botToken,
     prefix,
-} = require('../devtools/json/config.json')
+} = require('../../config.json')
 const {
     copypasta1,
     copypasta2,

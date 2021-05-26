@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const {
     botToken,
     prefix,
-} = require('../../devtools/json/config.json')
+} = require('../../../config.json')
 const {
     copypasta1,
 } = require('../../devtools/json/otherschtuff.json')
@@ -44,10 +44,10 @@ client.on('message', async msg =>{
        //proto or norm
        if(PorU == 0) {
            fileName = "p" + pRNG + ".jpg"
-           Dir = "C:/Users/jaelt/yoff/pics/proto/" + fileName
+           Dir = "../../../yoff/pics/proto" + fileName
        } else {
             fileName = fRNG + ".jpg"
-            Dir = "C:/Users/jaelt/yoff/pics/notproto/" + fileName
+            Dir = "../../../yoff/pics/notproto/" + fileName
        }
 
        //file attatchment setup
