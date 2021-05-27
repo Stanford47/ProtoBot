@@ -7,7 +7,7 @@ const {
 } = require('../../config.json');
 client.on('ready', () =>{
     console.log("ready")
-    client.user.setActivity("!", {
+    client.user.setActivity("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", {
     type:"PLAYING",
 })
 });

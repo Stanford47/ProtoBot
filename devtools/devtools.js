@@ -3,7 +3,7 @@ const client = new Discord.Client()
 const {
     prefix,
     botToken,
-} = require('../devtools/json/config.json')
+} = require('../../config.json')
 const dtlist = "specs, uptime"
 
 client.on('ready', () =>{
