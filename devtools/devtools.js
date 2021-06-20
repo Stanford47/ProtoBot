@@ -52,5 +52,10 @@ client.on('message', async msg =>{
     if(msg.content.startsWith(prefix) && msg.content.includes("specs")) {
         msg.channel.send(specsembed)
     }
+
+    if(msg.content === `${prefix}water`) {
+		msg.channel.send("*death sounds*")
+		msg.channel.send("")
+	}
 });
 client.login(botToken)

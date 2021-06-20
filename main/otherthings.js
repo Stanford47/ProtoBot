@@ -57,13 +57,13 @@ client.on('message', async msg =>{
     .addFields (
         {name:"Created on:", value:"1st March, 2021"},
         {name:"Created by:", value:"<@398758748904226836>"},
-        {name:"Help/Ideas:", value:"<@638120368816521236>, <@471555652234510336>, <@395955206350831616>, <@419320824584077324>, <@743679520107790416>, <@673652324258021387>, <@417047189311848448> "},
-        {name:"Coding help:", value:"<@743679520107790416>"}
+        {name:"Ideas for commands:", value:"<@638120368816521236>, <@471555652234510336>, <@395955206350831616>, <@419320824584077324>, <@743679520107790416>, <@673652324258021387>, <@417047189311848448> "},
+        {name:"Coding help:", value:"<@743679520107790416>, <@417047189311848448>"}
     )
     .setFooter("super cool people")
     msg.channel.send(infoEmbed)
     }
-    if(msg.content.startsWith(prefix) && msg.content.endsWith("B)")) {
+    if(msg.content.startsWith(prefix) && msg.content.endsWith("B)") || msg.content === `${prefix}credits` || msg.content === `${prefix}cool people`) {
         embedcolor();
     }
     function Com(Computer) {

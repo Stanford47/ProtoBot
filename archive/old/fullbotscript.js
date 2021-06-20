@@ -1,3 +1,8 @@
+/*
+================================================
+=THIS IS THE LEGACY SOURCE OF THE BOT          =
+=THIS CODE WILL NO LONGER BE USED IN THE FUTURE=
+================================================
 const owo = require('@zuzak/owo');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -160,7 +165,7 @@ const secretEmbed = new Discord.MessageEmbed()
     }
     function owoify() {
         if(msg.content.length < 9) {
-            msg.reply(owo.translate("I cant owoify nothing! give me something to owoify!"))
+            msg.reply(owo.translate("I cant owoify air! give me something to owoify!"))
         } else {
             let owoification = msg.content
             msg.channel.send(owo.translate(owoification.replace(`${prefix}owoify`, ` `)))

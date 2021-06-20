@@ -7,7 +7,7 @@ const {
 } = require('../../config.json');
 client.on('ready', () =>{
     console.log("ready")
-    client.user.setActivity("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", {
+    client.user.setActivity("with arm processors", {
     type:"PLAYING",
 })
 });
