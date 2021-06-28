@@ -1,15 +1,24 @@
 {
     "configurations": [
         {
-            "name": "Run C++ File",
-            "type": "cppvsdbg",
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
             "request": "launch",
-            "program": "C:/Program Files/CodeBlocks/MinGW/bin/c++.exe",
+            "program": "C:/Users/jaelt/ProtoBot/main/other things/WhyAmIMakingCppFilesInProtoBotSmh.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "console": "externalTerminal"
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files/CodeBlocks/MinGW/bin/c++.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         },
         {
             "type": "node-terminal",

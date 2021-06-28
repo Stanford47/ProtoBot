@@ -270,5 +270,10 @@ client.on('message', async msg => {
 	if(msg.content === `${prefix}repo` || msg.content === `${prefix}repository` || msg.content === `${prefix}github`) {
 		msg.channel.send(owo.translate("Heres my GitHub repository! \n https://github.com/Stanford47/ProtoBot"));
 	}
+
+	//botkiller
+	if(msg.content === `${prefix}water`) {
+		msg.channel.send("")
+	}
 });
 client.login(botToken)

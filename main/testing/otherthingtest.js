@@ -66,7 +66,39 @@ client.on('message', async msg =>{
     if(msg.content.startsWith(prefix) && msg.content.endsWith("B)") || msg.content === `${prefix}credits` || msg.content === `${prefix}cool people`) {
         embedcolor();
     }
-    function Com(Computer) {
+    function rpsEasy(Com, Player) {
+        Player = msg.content.replace(`${prefix}rps easy `, "");
+        if(Player == "rock") {
+            Com = Math.round(Math.random()*9);
+            if(Com <= 1) {
+                Com = "paper";
+            } else if(Com <= 3) {
+                Com = "rock";
+            } else if(Com > 3) {
+                Com = "scissors";
+            }
+        } else if(Player == "paper") {
+            Com = Math.round(Math.random()*9);
+            if(Com <= 1) {
+                Com = "scissors";
+            } else if (Com <= 3) {
+                Com = "paper";
+            } else if (Com > 3) {
+                Com = "rock";
+            }
+        } else if(Player == "scissors") {
+            Com = Math.round(Math.random()*9);
+            
+        }
+    }
+
+if(msg.content === `${prefix}water`) {
+    msg.channel.send("")
+}
+});
+client.login(botToken)
+/*
+function Com(Computer) {
         Computer = Math.round(Math.random()*3)
         
         if(Computer == 0) {
@@ -150,9 +182,4 @@ if(msg.content.startsWith(`${prefix}rps rock`) || msg.content.startsWith(`${pref
 } else if (msg.content.startsWith(`${prefix}rps`) && !msg.content.includes("rock" || "paper" || "scissors")) {
     msg.reply(owo.translate("thats not a valid argument!"))
 }
-
-if(msg.content === `${prefix}water`) {
-    msg.channel.send("")
-}
-});
-client.login(botToken)
+*/
