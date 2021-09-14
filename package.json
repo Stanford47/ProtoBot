@@ -1,0 +1,28 @@
+{
+  "name": "protobot",
+  "version": "1.0.0",
+  "description": "cool and swaggy bot by Stanford47#5621 and Sandium#4985",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanford47/ProtoBot.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Stanford47/ProtoBot/issues"
+  },
+  "homepage": "https://github.com/Stanford47/ProtoBot#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.6.0",
+    "@zuzak/owo": "^1.14.1",
+    "chalk": "^4.1.2",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.5",
+    "replace-string": "^4.0.0"
+  }
+}
