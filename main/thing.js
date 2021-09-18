@@ -5,12 +5,13 @@
 
 //btw sandium the nn embed is in devtools.js
 
+//create sleepy thing
 
 //Dependencies
 const { setup, urls } = require('../secrets/config.json');
 const chalk = require('chalk');
 const { Intents, MessageEmbed, Client } = require('discord.js');
-const replaceString = import('replace-string');
+const replaceString = import('replace-string'); //fuck replaceString
 const owo = require('@zuzak/owo')
 
 //on file start
@@ -61,7 +62,6 @@ function helpEmbeds() {
 		.addFields(
 		{name: "Fun", value: "fun and cool commands that I was programmed with!", inline: true},
 		{name: "Moderation", value: "commands for keeping your server in check", inline: true}, //change the value text, I dont like it
-		//{name: "Voice", value: "epic commands that you can use in a vc", inline: true}, //i also dont like this one...
 		{name: "Utility", value: "some other commands that are kind of fun", inline: true} //change this one lol
 		)
 		.setFooter(":3")
@@ -182,20 +182,15 @@ if(msg.content === `${prefix}rng`)
 }
 
 //special command for raccy waccy :3
+/*
 if(msg.content === `${prefix}hi` && msg.author.id === "638120368816521236") {
 	msg.channel.send("hi raccy waccy :3");
-} else if(msg.content === `${prefix}hi`) {
+} else */if(msg.content === `${prefix}hi`) {
 	msg.channel.send("hi!");
 }
 
 function DevTools(channelID, logChannelID)
 {
-	//get channel id
-	channelID = msg.channelId;
-
-	//kc log channel id
-	logChannelID = '887137912284643368'
-
 	//check if user is a dev
 	if(!msg.author.id === "398758748904226836" || !msg.author.id === "417047189311848448") return msg.reply("you can\'t use these commands!");
 
@@ -206,18 +201,16 @@ function DevTools(channelID, logChannelID)
 	.setDescription("** **")
 	.addFields(
 		{name: "code create", value: "use this to create or change the current kill code"},
-		{name: "code generate", value: "randomly generates new kill code"},
+		{name: "~~code generate~~", value: "randomly generates new kill code"},
 		{name: "botToken", value: "sends the bot\'s token in chat"}
 	)
 	.setFooter("DevTools")
 	.setTimestamp()
 
 	//killCode
-	if(msg.content.startsWith(`${prefix}code `))
+	if(msg.content.startsWith(`${prefix}code create`))
 	{
-		//create
-		if(msg.content.includes("create"))
-		{
+
 			//check if dev made oopsie
 			if(msg.content.endsWith("create")) return msg.reply(`<@${msg.author.id}>, missing argument. ` + "`CODE`");
 
@@ -225,17 +218,22 @@ function DevTools(channelID, logChannelID)
 			killCode = msg.content.replace(`${prefix}code create `, "" );
 
 			//delete message, tell code, after 3 seconds delete pb msg, log to dev channel
-			msg.delete().then(client, () => {
-				msg.channel.send(killCode);
-				logChannelID.send(killCode);
+			msg.delete()
+			msg.channel.send("kill code has been logged to console.");
+			console.log("new killCode: " + killCode) //piss
+			return killCode;
+	}
 
-			});
-		}
+	if(msg.content === prefix + killCode)
+	{
+		process.exit(1);
 	}
 }
+
+if(msg.content.startsWith(prefix + "code") || msg.content === prefix + killCode) DevTools();
 });
 //login
-client.login(setup.botToken);
+client.login(botToken);
 
 //i hate coding in notepad OIWFJOIJEOfewpor43]t3\t[45yea
 
