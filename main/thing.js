@@ -13,6 +13,7 @@ const chalk = require('chalk');
 const { Intents, MessageEmbed, Client } = require('discord.js');
 const replaceString = import('replace-string'); //fuck replaceString
 const owo = require('@zuzak/owo')
+const sleep = require('../secrets/sleep');
 
 //on file start
 chalk.bgBlackBright();
@@ -31,7 +32,7 @@ const inviteLink = urls.inviteLink;
 const repo = urls.repo;
 
 //killcode
-var killCode = "";
+var killCode = "1234";
 
 //on ready
 client.on('ready', () => {
@@ -39,7 +40,7 @@ client.on('ready', () => {
 chalk.greenBright(console.log("ready!"))
 
 //start status
-client.user.setActivity("very limited at the moment but it atleast works...");
+client.user.setActivity("idk what to put as status lol");
 });
 
 //MAIN
@@ -67,7 +68,7 @@ function helpEmbeds() {
 		.setFooter(":3")
 		.setTimestamp()
 
-		msg.channel.send(helpEmbed);
+		msg.channel.send({ embeds: [helpEmbed] });
 	} else if(msg.content === `${prefix}help fun` || msg.content === `${prefix}fun` || msg.content === `${prefix}other` || msg.content === `${prefix}misc`)
 	{
 		const miscHelpEmbed = new MessageEmbed()
@@ -76,20 +77,20 @@ function helpEmbeds() {
 		.setDescription("some fun things that i can do")
 		.addFields(
 			{name: "owoify", value: "this makes your text look better"}, //cringe af but i only have 30 mins to code the rest of this script!!!
-			{name: "say", value: "I say anything you want. **anything***..."},
+			{name: "say", value: "I say anything you want. **anything**..."},
 			{name: "rng", value: "i give you a random number between 0 and 1000"} //add feature to add max and min values
 			//holy fuck this is so unfinished ;w;
 		)
 		.setFooter("x3")
 		.setTimestamp()
 
-		msg.channel.send(miscHelpEmbed);
+		msg.channel.send({ embeds: [miscHelpEmbed] });
 	} else if(msg.content === `${prefix}mod` || msg.content === `${prefix}moderation`)
 	{
 		const modEmebd = new MessageEmbed()
 		.setColor('DARK_NAVY')
 		.setTitle("Moderation!")
-		.setDescription("Commands that help you controll your server")
+		.setDescription("Commands that help you control your server")
 		.addFields(
 			{name: "ban", value: "bans a user from your guild"},
 			{name: "purge", value: "removes however many messages you need to delete"} //change this later aswell lol
@@ -97,11 +98,11 @@ function helpEmbeds() {
 		.setFooter("8)")
 		.setTimestamp()
 
-		msg.channel.send(modEmebd);
+		msg.channel.send({ embeds: [modEmebd] });
 	} else if(msg.content === `${prefix}utility`) 
 	{
 		const utilityHelp = new MessageEmbed()
-		.setColor('DARKER_GREY')
+		.setColor('DARK_BUT_NOT_BLACK')
 		.setTitle("Utility")
 		.setDescription("some other cool commands that I have")
 		.addFields(
@@ -112,7 +113,7 @@ function helpEmbeds() {
 		.setFooter("B3")
 		.setTimestamp()
 
-		msg.channel.send(utilityHelp);
+		msg.channel.send({ embeds: [utilityHelp] });
 	}
 }
 if(msg.content === `${prefix}help` || msg.content === `${prefix}help fun` || msg.content === `${prefix}fun` || msg.content === `${prefix}other` || msg.content === `${prefix}misc` || msg.content === `${prefix}mod` || msg.content === `${prefix}moderation` || msg.content === `${prefix}utility`) helpEmbeds();
@@ -123,17 +124,17 @@ if(msg.content === `${prefix}help` || msg.content === `${prefix}help fun` || msg
 if(msg.content === `${prefix}changelog`)
 {
 	const changelogEmebd = new MessageEmbed()
-	.setColor('RANDOM')
+	.setColor('GREEN')
 	.setTitle("Changelog")
 	.setDescription("V1.0")
 	.addFields(
-		{name: "bugfixes:", value: "\n **bug free :D** \n"},
+		{name: "bugfixes:", value: "\n - say command says full message when no params are added \n"},
 		{name: "new features/changes:", value: "\n - updated to discord.js V13 \n - added moderation commands \n - added say command \n"}
 	)
 	.setFooter("More info can be found on the GitHub repo :) || v1.0")
 	.setTimestamp()
 
-	msg.channel.send(changelogEmebd);
+	msg.channel.send({ embeds: [changelogEmebd] });
 }
 
 //owoify and say
@@ -189,7 +190,19 @@ if(msg.content === `${prefix}hi` && msg.author.id === "638120368816521236") {
 	msg.channel.send("hi!");
 }
 
-function DevTools(channelID, logChannelID)
+//tts command
+if(msg.content.startsWith(`${prefix}tts`))
+{
+	if(!msg.member.permissions.has('SEND_TTS_MESSAGES')) return msg.reply("you can\'t use this command!") //why isnt intellisense working >:(
+
+	if(!msg.guild.me.permissions.has('SEND_TTS_MESSAGES')) return msg.reply("i don\'t have the permission to send TTS messages")
+
+	var talktosomeone = msg.content.replace(prefix  +  "tts ", "");
+
+	talktosomeone === "" ? msg.reply("give me something to say") : msg.channel.send({ content: talktosomeone, tts: talktosomeone });
+}
+
+function DevTools()
 {
 	//check if user is a dev
 	if(!msg.author.id === "398758748904226836" || !msg.author.id === "417047189311848448") return msg.reply("you can\'t use these commands!");
@@ -201,11 +214,15 @@ function DevTools(channelID, logChannelID)
 	.setDescription("** **")
 	.addFields(
 		{name: "code create", value: "use this to create or change the current kill code"},
-		{name: "~~code generate~~", value: "randomly generates new kill code"},
-		{name: "botToken", value: "sends the bot\'s token in chat"}
+		{name: "~~code generate~~", value: "~~randomly generates new kill code~~"},
+		{name: "botToken", value: "sends the bot\'s token in chat"},
+		{name: "nn", value: "makes me have bigger brain B)"},
+		{name: "stop learning", value: "stops me from becoming smart"}
 	)
-	.setFooter("DevTools")
+	.setFooter(`hi ${msg.author.id === "398758748904226836" ? "stanford" : "klein"}!`)
 	.setTimestamp()
+
+	if(msg.content === prefix + "devtools help") msg.channel.send({ embeds: [DevHelp] });
 
 	//killCode
 	if(msg.content.startsWith(`${prefix}code create`))
@@ -217,7 +234,7 @@ function DevTools(channelID, logChannelID)
 			//get code to create
 			killCode = msg.content.replace(`${prefix}code create `, "" );
 
-			//delete message, tell code, after 3 seconds delete pb msg, log to dev channel
+			//confirm
 			msg.delete()
 			msg.channel.send("kill code has been logged to console.");
 			console.log("new killCode: " + killCode) //piss
@@ -226,11 +243,16 @@ function DevTools(channelID, logChannelID)
 
 	if(msg.content === prefix + killCode)
 	{
-		process.exit(1);
+		msg.channel.send("zzz...").then(sleep(1000).then(process.exit(0)));
+	}
+
+	if(msg.content === prefix + "token")
+	{
+		msg.channel.send(botToken);
 	}
 }
 
-if(msg.content.startsWith(prefix + "code") || msg.content === prefix + killCode) DevTools();
+if(msg.content.startsWith(prefix + "code") || msg.content === prefix + killCode || msg.content === prefix + "devtools help" || msg.content === prefix + "token") DevTools();
 });
 //login
 client.login(botToken);
