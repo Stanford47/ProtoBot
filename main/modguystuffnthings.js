@@ -54,7 +54,7 @@ client.on('messageCreate', async msg => {
         }
 
         //check if user mentioned themselves for some reason
-        if(msg.mentions.members.first() === msg.author)
+        if(msg.mentions.members.first().id === msg.author.id)
         {
             return msg.reply("why are you trying to ban yourself...");
         }
