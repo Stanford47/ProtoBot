@@ -31,6 +31,7 @@ client.on('messageCreate', async msg => {
     {
         //get msg content
         var mc = msg.content.replace(prefix + "ban ", "");
+
         //get args
         let pp = msg.content.split(' ');
         let ppp = pp.slice(1);
@@ -68,17 +69,17 @@ client.on('messageCreate', async msg => {
             return msg.reply("don\'t ban me ;w;");
         }
 
-        //check for perms
-        if(badman.permissions.has('BAN_MEMBERS') && badman != msg.guild.me)
-        {
-            return msg.reply("i can\'t ban people that also have the ban permission")
-        }
+        //remove bannee
+        ppp.shift();
+
+        //check if provided amount of time to delete
+        if(ppp[0] === "1" || ppp[0] === "2" || ppp[0] === "3" || ppp[0] === "4" || ppp[0] === "5" || ppp[0] === "6" || ppp[0] === "7" || ppp[0] === "8" || ppp[0] === "9") var ja = parseInt(ppp[0]); ppp.shift(); //this isnt going to work is it
 
         //get reason why they are banning
-        let u = ppp.slice(1).join(" ");
+        let u = ppp.slice(1);
 
         //try to ban guy
-        msg.guild.members.cache.get(badman.id).ban({ reason: u });
+        msg.guild.members.cache.get(badman.id).ban({ reason: u, days: ja == "" ? null : ja });
         
         //send message in chat and say in console as well
         msg.channel.send(`User <@${badman.id}> has been banned for ${u}`);
@@ -124,5 +125,53 @@ client.on('messageCreate', async msg => {
         //bulk delete
         msg.channel.bulkDelete(MTD + 1);
     }
+
+
+    /*
+    //channel settings
+    if(msg.content.startsWith(prefix + "channel"))
+    {
+        //get args
+        var what = msg.content.split(" ").shift();
+
+        //check if nothing
+        if(what.length < 1) return msg.reply("dummy text...");
+
+        //types
+
+        //Set Timeout//
+        //Set NSFW//
+        //Access Perms//
+
+        //set channel timeout
+        if(what[0].includes("timeout")) {
+            //if no args for timeout
+            if(what.length < 2) return msg.reply("how long do you want the timeout length?");
+
+            //get length
+            var TL = parseInt(what[1]);
+
+            //get channel id (channel id is optional)
+           //if(what.length < 3) return msg.reply("what is the id of the channel?"); //remove if not needed/wanted
+            if(what.length == 3){
+                var ID = what[2];
+            }
+            
+            //set timeout (but check for perms first)
+            if(!msg.guild.me.permissions.has('MANAGE_CHANNELS')) return msg.reply("i do not have the permissions to do that");
+
+            if(!msg.member.permissions.has('MANAGE_CHANNELS')) return msg.reply("you can\'t use this command!");
+
+            //now actually set timeout
+            if(what.length == 3) {
+                msg.channel
+            }// finish later
+        }
+
+        if(what[0].includes("")) {
+
+        }
+    }
+    */
 });
 client.login(botToken); //i stg if this doesnt work

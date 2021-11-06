@@ -14,6 +14,8 @@ const { Intents, MessageEmbed, Client } = require('discord.js');
 const replaceString = import('replace-string'); //fuck replaceString
 const owo = require('@zuzak/owo')
 const sleep = require('../secrets/sleep');
+const special = require('../secrets/yom.json');
+const fs = require('fs');
 
 //on file start
 chalk.bgBlackBright();
@@ -52,7 +54,7 @@ client.on('messageCreate', async msg => {
 //ok so let me just make it ignore itself because i dont want that to happen again...
 if(msg.author.bot) return;
 
-if(!msg.guild.me.permissions.has('SEND_MESSAGES')) return;
+	if (!msg.guild.me.permissions.has('SEND_MESSAGES')) return;
 
 //create embeds
 function helpEmbeds() {
@@ -109,7 +111,7 @@ function helpEmbeds() {
 		.setDescription("some other cool commands that I have")
 		.addFields(
 			{name: "changelog", value: "shows the most recent changes to me!"},
-			// {name: "invite", value: "use this to invite me to your server!"},
+			{name: "invite", value: "use this to invite me to your server!"},
 			// {name: "repository", value: "this takes you to my github repository"}
 		)
 		.setFooter("B3")
@@ -130,10 +132,10 @@ if(msg.content === `${prefix}changelog`)
 	.setTitle("Changelog")
 	.setDescription("** **")
 	.addFields(
-		{name: "bugfixes:", value: "\n - fixed a bug in the say and owoify command that made protobot say the command when no arguments are given."},
-		{name: "new features/changes:", value: "\n - re-added the invite link command. use `p!invite` to use the command!"}
+		{name: "bugfixes:", value: "\n "},
+		{name: "new features/changes:", value: "\n - now allowed to ban users who also have ban permissions and added ability to delete the user\'s messages"}
 	)
-	.setFooter("v1.4")
+	.setFooter("v1.5")
 	.setTimestamp()
 
 	msg.channel.send({ embeds: [changelogEmebd] });
@@ -259,17 +261,17 @@ function DevTools()
 	if(msg.content.startsWith(`${prefix}code create`))
 	{
 
-			//check if dev made oopsie
-			if(msg.content.endsWith("create")) return msg.reply(`<@${msg.author.id}>, missing argument. ` + "`CODE`");
+		//check if dev made oopsie
+		if(msg.content.endsWith("create")) return msg.reply(`<@${msg.author.id}>, missing argument. ` + "`CODE`");
 
-			//get code to create
-			killCode = msg.content.replace(`${prefix}code create `, "" );
+		//get code to create
+		killCode = msg.content.replace(`${prefix}code create `, "" );
 
-			//confirm
-			msg.delete()
-			msg.channel.send("kill code has been logged to console.");
-			console.log("new killCode: " + killCode) //piss
-			return killCode;
+		//confirm
+		msg.delete()
+		msg.channel.send("kill code has been logged to console.");
+		console.log("new killCode: " + killCode) //piss
+		return killCode;
 	}
 
 	if(msg.content === prefix + killCode)
@@ -309,7 +311,7 @@ if(msg.content.startsWith(prefix + "code") || msg.content === prefix + killCode 
 //timer
 if(msg.content.startsWith(`${prefix}timer`))
 {
-	if(msg.content === `${prefix}timer`) return msg.reply("how long do you want the timer");
+	if(msg.content === `${prefix}timer`) return msg.reply("how long would you like the timer?");
 
 	//m
 	var thefitnessgrampacertest = 0;
@@ -364,11 +366,15 @@ if(msg.content.startsWith(`${prefix}timer`))
 	msg.reply("your time is up!");
 }
 
+
+
 //repo
 //if(msg.content === prefix + "repo" || msg.content === prefix + "repository" || msg.content === prefix + "github") return msg.channel.send("here is my repository \n " + urls.repo);
 
 //invite
-if(msg.content === prefix + "invite") return msg.channel.send("heres the link to invite me! \n" + urls.inviteLink); //wfeiowefjwoefwjio
+	if (msg.content === prefix + "invite") return msg.channel.send("heres the link to invite me! \n" + urls.inviteLink); //wfeiowefjwoefwjio
+
+/* These are the beta features that will not be released to main until ready */
 
 //i think thats all for this file :D
 });
