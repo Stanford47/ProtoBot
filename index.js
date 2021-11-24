@@ -1,10 +1,3 @@
-const { exec } = require('child_process');
-const sleep = require('./secrets/sleep');
+var wshShell = new ActiveXObject("WScript.Shell");
 
-exec('secrets/cp.cmd', (err, stderr, stdout) => {
-    if(err) return console.error(err + "\n there has been an error with opening the cmd file to start the bot");
-
-    console.log(stdout);
-
-    sleep(10000)
-}); //read line 8 of start.vbs
+wshShell.run('C:\\Users\\Owner\\Documents\\GitHub\\ProtoBot\\secrets\\batch\\uwu.bat');

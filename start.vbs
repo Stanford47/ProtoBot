@@ -25,5 +25,5 @@ Else If FTO = "vc" Then
     PBOBJSH.Run("node " & PATH & "voice.js")
 Else If FTO = "all" Then
     PATH = "C:\Users\Owner\Documents\GitHub\ProtoBot\" 'read line 8
-    PBOBJSH.Run("node " & PATH & "index.js")
+    PBOBJSH.Run(".\index.js")
 End If End If End If End If End If End If

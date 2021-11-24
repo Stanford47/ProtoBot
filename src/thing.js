@@ -29,11 +29,14 @@ const repo = urls.repo;
 
 //on ready
 client.on('ready', () => {
-//say ready
-console.log(chalk.greenBright("ready!"))
+	//say ready
+	console.log(chalk.greenBright("ready!"))
 
-//start status
-client.user.setActivity("wanna know a cool fact?");
+	//start status
+	client.user.setActivity({
+		name: "for DDR5 RAM",
+		type: 'WATCHING'
+	});
 });
 
 //MAIN
@@ -232,7 +235,12 @@ if(devcommands.includes(b[0]))
 		process.kill(process.pid, 'SIGTERM');
 	} else if(command == devcommands[2])
 	{
-		exec('')
+		await exec('C:\\Users\\Owner\\Documents\\GitHub\\ProtoBot\\index.js', function (error, stdout, stderr) {
+			if(error) return console.error(error + "\nthere has been an error with opening index.js");
+
+			console.log("stdout: " + stdout);
+			console.log("stderr: " + stderr);
+		});
 	}
 }
 
