@@ -16,7 +16,7 @@ client.on('ready', () => {
     console.log(chalk.greenBright("ready!"));
 });
 
-/* On Guild Join */
+/* On Guild Join/Create */
 client.on('guildCreate', async guild => {
     //make folder to hold the guild's stuff
     fs.mkdir(`../secrets/guilds/${guild.id}`, function(err) {
@@ -24,14 +24,17 @@ client.on('guildCreate', async guild => {
     });
 
     //create config files
-    fs.appendFile(`../secrets/guilds/${guild.id}/settings.toaster`, 'false\ntrue\nfalse', function(err) {
+    fs.appendFile(`../secrets/guilds/${guild.id}/settings.toaster`, 'false\nfalse', function(err) {
         if(err) return console.log(err);
     });
     //Key:
     //1: beta features
-    //2: message logging
-    //3: nsfw
-    //4: 
+    //2: nsfw
+
+    //make folder for audio
+    fs.mkdir(`../secrets/guilds/${guild.id}/audio`, (err) => {
+        if(err) return console.log(err);
+    });
 })
 
 /* On Guild Leave/Delete */
@@ -51,27 +54,18 @@ client.on('messageCreate', async msg => {
                 if(err) return console.error(err + "\n there has been a problem with creating new dir for server " + msg.guild.id + ".");
             });
 
-            fs.writeFile('../secrets/guilds/' + msg.guild.id + '/settings.toaster', 'false\ntrue\nfalse', (err) => {
+            fs.writeFile('../secrets/guilds/' + msg.guild.id + '/settings.toaster', 'false\nfalse', (err) => {
                 if(err) return console.error(err + "\n there has been a problem with creating settings file for guild " + msg.guild.id + ".");
             });
         }
     });
 
-    //check if server allows message logging. if it does, log message
-    fs.readFile('../secrets/guilds/' + msg.guild.id + '/settings.toaster', 'utf8',(err, data) => {
-        if(err) return console.error(err + "\n there has been an error with checking server settings in guild " + msg.guild.id + ".");
-
-        let settings = data.toString();
-
-        settings.split('\n');
-
-        if(settings[1].includes("true"))
-        {
-            fs.appendFile('../secrets/guilds/' + msg.guild.id + '/log.toaster', msg.content + "\n", (err) => {
-                if(err) return console.error(err + "\n there has been an error with logging a user\'s message in guild " + msg.guild.id + ".");
-            });
-        } else return;
-    });
+    //check if user used command if yes dont log
+    if(!msg.content.startsWith("p!")) {
+        fs.appendFile(`../secrets/guilds/${msg.guild.id}/logs.toaster`, msg.content + "\n", (err) => {
+            if(err) return console.error(err + "\nthere has been an error with logging messages in guild: " + msg.guild.id + " in channel: " + msg.channel.id + ".")
+        });
+    }
 
     if(msg.content.startsWith(setup.setup.prefix + "dev add")) {
         fs.readFile('../secrets/settings/devs.toaster', 'utf8', (err, data) => {

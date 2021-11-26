@@ -126,10 +126,10 @@ if(msg.content === `${prefix}changelog`)
 	.setTitle("Changelog")
 	.setDescription("** **")
 	.addFields(
-		{name: "bugfixes:", value: "\n "},
-		{name: "new features/changes:", value: "\n - now allowed to ban users who also have ban permissions and added ability to delete the user\'s messages"}
+		{name: "bugfixes:", value: "\n no bugs!"},
+		{name: "new features/changes:", value: /*"\nhi! version 2.0 of protobot is here! here\'s a few of PB\'s new features! \n - added"*/"\n nothing new yet ;3"}
 	)
-	.setFooter("v1.5")
+	.setFooter("v1.5"/*"v2.0"*/)
 	.setTimestamp()
 
 	msg.channel.send({ embeds: [changelogEmebd] });
@@ -177,14 +177,13 @@ if(msg.content.startsWith(`${prefix}rng`))
 			.setDescription(no_name)
 			.setTimestamp()
 		]
-	 });
+	});
 } //brb lol
 
 //special command for raccy waccy :3
-/*
 if(msg.content === `${prefix}hi` && msg.author.id === "638120368816521236") {
 	msg.channel.send("hi raccy waccy :3");
-} else */if(msg.content === `${prefix}hi`) {
+} else if(msg.content === `${prefix}hi`) {
 	msg.channel.send("hi!");
 }
 
@@ -196,6 +195,8 @@ if(msg.content.startsWith(`${prefix}tts`))
 	if(!msg.guild.me.permissions.has('SEND_TTS_MESSAGES')) return msg.reply("i don\'t have the permission to send TTS messages")
 
 	var talktosomeone = msg.content.replace(prefix  +  "tts ", "");
+
+	msg.delete();
 
 	talktosomeone === "" ? msg.reply("give me something to say") : msg.channel.send({ content: talktosomeone, tts: talktosomeone });
 }
