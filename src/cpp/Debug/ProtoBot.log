@@ -1,2 +1,0 @@
-﻿ProtoBot.obj : error LNK2001: unresolved external symbol "unsigned int dpp::__next_handle" (?__next_handle@dpp@@3IA)
-C:\Users\Owner\Documents\GitHub\ProtoBot\src\cpp\Debug\ProtoBot.exe : fatal error LNK1120: 1 unresolved externals

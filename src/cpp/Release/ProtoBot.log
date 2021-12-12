@@ -1,2 +1,0 @@
-﻿  ProtoBot.cpp
-C:\Users\Owner\Documents\GitHub\ProtoBot\src\cpp\ProtoBot.cpp(1,10): fatal error C1083: Cannot open include file: 'dpp/dpp.h': No such file or directory

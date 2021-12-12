@@ -189,8 +189,8 @@ client.on('messageCreate', async msg => {
 
     if(msg.content === prefix + "list")
     {
-        list_music();
-    }
+        list_music(); 
+    } 
 
     if(msg.content.startsWith(prefix + "remove"))
     {
