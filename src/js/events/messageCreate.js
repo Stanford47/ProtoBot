@@ -3,6 +3,8 @@ const Event = require('../classes/Event.js');
 
 module.exports = new Event('messageCreate', (client, message) => {
     if(!message.content.startsWith(client.prefix)) return;
+    if(message.author.bot) return;
+    if(message.webhookId) return;
     
     const args = message.content.substring(client.prefix.length).split(/ +/);
 

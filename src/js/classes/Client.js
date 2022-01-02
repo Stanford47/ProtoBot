@@ -8,7 +8,7 @@ const intents = new Discord.Intents(1003);
 
 class Client extends Discord.Client {
     constructor(options) {
-        super({ intents });
+        super({ intents, allowedMentions: { repliedUser: false } });
 
         /**
          * @type { Discord.Collection<string, Command> }
@@ -19,7 +19,7 @@ class Client extends Discord.Client {
     }
 
     start(token) {
-        fs.readdirSync('./js/commands').filter(file => file.endsWith('.js')).forEach(file => {
+        fs.readdirSync(__dirname.replace("\\classes", "\\commands")).filter(file => file.endsWith('.js')).forEach(file => {
             /**
              * @type {Command}
              */
@@ -28,7 +28,7 @@ class Client extends Discord.Client {
             this.commands.set(command.name, command);
         });
 
-        fs.readdirSync('./js/events').filter(file => file.endsWith(".js")).forEach(file => {
+        fs.readdirSync(__dirname.replace("\\classes", "\\events")).filter(file => file.endsWith(".js")).forEach(file => {
             /**
              * @type {Event}
              */
