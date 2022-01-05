@@ -3,8 +3,8 @@ const Event = require('../classes/Event.js');
 
 module.exports = new Event('messageCreate', (client, message) => {
     client.user.setActivity({
-        name: "testing",
-        type: 'PLAYING'
+        name: "GPU prices",
+        type: 'WATCHING'
     });
 
     if(!message.content.startsWith(client.prefix)) return;
