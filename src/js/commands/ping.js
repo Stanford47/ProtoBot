@@ -29,7 +29,7 @@ module.exports = new Command({
                     {name: "__Response time__", value: rTime + "ms", inline: true},
                     {name: "__Discord API Latency__", value: dPing + "ms", inline: true}
                 )
-                .setFooter("How many packets are bursting?")
+                .setFooter({ text: "How many packets are bursting?" })
             ]
         });
     }

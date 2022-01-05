@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "restarts the bot",
 
     async run(message, args, client) {
-        const devs = readFileSync('../secrets/settings/devs.toaster').toString().split("\n");
+        const devs = readFileSync('./secrets/settings/devs.toaster').toString().split("\n");
 
         if(!devs.includes(message.author.id)) return message.reply("you aren\'t a dev! try a different command");
 

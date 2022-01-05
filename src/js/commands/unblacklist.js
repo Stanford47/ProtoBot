@@ -6,8 +6,8 @@ module.exports = new Command({
     description: "unblacklists a person",
 
     async run(message, args, client) {
-        const devs = fs.readFileSync('../secrets/settings/devs.toaster', 'utf8').split("\n");
-        const blacklist = fs.readFileSync('../secrets/settings/blacklist.toaster', 'utf8').split("\n");
+        const devs = fs.readFileSync('./secrets/settings/devs.toaster', 'utf8').split("\n");
+        const blacklist = fs.readFileSync('./secrets/settings/blacklist.toaster', 'utf8').split("\n");
 
         if(!devs.includes(message.author.id)) return message.reply("you aren\'t a developer! you cannot use this command");
 
@@ -24,7 +24,7 @@ module.exports = new Command({
                 }
             });
 
-            fs.writeFileSync('../secrets/settings/blacklist.toaster', newData.join("\n"));
+            fs.writeFileSync('./secrets/settings/blacklist.toaster', newData.join("\n"));
 
             message.channel.send(`successfully unblacklisted user <@${args[1]}> \nid: ${args[1]}`);
         });

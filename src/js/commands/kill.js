@@ -6,7 +6,7 @@ module.exports = new Command({
     description: "use this to kill the bot",
 
     async run(message, args, client) {
-        const devs = fs.readFileSync('../secrets/settings/devs.toaster').toString().split("\n");
+        const devs = fs.readFileSync('./secrets/settings/devs.toaster').toString().split("\n");
 
         if(!devs.includes(message.author.id)) return message.reply("you aren\'t a dev! use a different command!");
 

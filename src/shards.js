@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { setup } = require('../secrets/config.json');
-const Manager = new Discord.ShardingManager('./main.js', {
+const Manager = new Discord.ShardingManager('./src/main.js', {
     token: setup.botToken,
     totalShards: 3
 });
