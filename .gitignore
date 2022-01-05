@@ -9,3 +9,14 @@ ProtoBot.pdb
 src/cpp/ProtoBot/ProtoBot.vcxproj.filters
 src/cpp/ProtoBot/token.txt
 .gitignore
+
+dpp.dll
+libcrypto-1_1.dll
+libsodium.dll
+libssl-1_1.dll
+zlib1.dll
+ProtoBot.exe
+opus.dll
+src\cpp\ProtoBot\Debug
+src\cpp\ProtoBot\out
+src\cpp\ProtoBot\Release
