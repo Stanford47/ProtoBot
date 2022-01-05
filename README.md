@@ -11,7 +11,7 @@
 <br>
 <br>
 
-###### made by: Stanford47#5621 and Sandium#4985
+###### made by: Stanford47#3301, Sandium#4985, and DEATHB4DEFEAT#4404
 
 <br>
 <br>
