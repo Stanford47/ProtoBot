@@ -1,2 +1,0 @@
-C:/Users/Owner/Documents/GitHub/ProtoBot/src/cpp/ProtoBot/out/build/x86-Release/CMakeFiles/edit_cache.dir
-C:/Users/Owner/Documents/GitHub/ProtoBot/src/cpp/ProtoBot/out/build/x86-Release/CMakeFiles/rebuild_cache.dir

@@ -16,6 +16,10 @@ int main() {
 		if (event.msg.content == "p!cppTest") {
 			bot.message_create(dpp::message(event.msg.channel_id, "test"));
 		}
+
+		/*
+		Any header files or functions that you make outside of this file, pls put in req folder
+		*/
 	});
 
 	bot.start(false);

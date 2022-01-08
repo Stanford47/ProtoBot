@@ -151,6 +151,9 @@
   <ItemGroup>
     <ClCompile Include="ProtoBot.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="req\Client.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
