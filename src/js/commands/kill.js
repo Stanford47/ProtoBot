@@ -12,6 +12,8 @@ module.exports = new Command({
 
         await message.channel.send("bye-bye!");
 
+        await client.destroy();
+
         console.log("process ended..");
 
         process.kill(process.pid, 'SIGTERM');
