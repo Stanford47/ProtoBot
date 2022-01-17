@@ -8,8 +8,6 @@ node_modules/puppeteer/.local-chromium/win64-938248/chrome-win/interactive_ui_te
 ProtoBot.pdb
 src/cpp/ProtoBot/ProtoBot.vcxproj.filters
 src/cpp/ProtoBot/token.txt
-.gitignore
-
 dpp.dll
 libcrypto-1_1.dll
 libsodium.dll
@@ -20,3 +18,6 @@ opus.dll
 src\cpp\ProtoBot\Debug
 src\cpp\ProtoBot\out
 src\cpp\ProtoBot\Release
+src\cpp\ProtoBot\out\build
+assets\uwus
+node_modules
