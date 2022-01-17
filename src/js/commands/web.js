@@ -19,6 +19,9 @@ module.exports = new Command({
         const nfwTerms = fs.readFileSync('./secrets/settings/websitensfwterms.toaster', 'utf8').split("\n");
 
         if (com === null) return message.reply("missing args"); //fix later
+        nfwTerms.forEach(term => {
+            if(webURL.includes(term) && !message.channel.nsfw) return message.reply("this website contains nsfw content. please try it again in a text channel marked as nsfw");
+        });
 
 
         if (com === "screenshot" || com === "ss") {
