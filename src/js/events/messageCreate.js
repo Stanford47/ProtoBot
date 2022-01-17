@@ -19,5 +19,5 @@ module.exports = new Event('messageCreate', (client, message) => {
 
     const command = client.commands.find(command => command.name == args[0]);
 
-    command.run(message, args, client);
+    try { command.run(message, args, client); } catch(err) { console.log("someone did the wrong command lol") };
 });
