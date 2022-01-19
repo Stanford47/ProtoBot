@@ -7,7 +7,7 @@ module.exports = new Event('messageCreate', (client, message) => {
         type: 'WATCHING'
     });
 
-    if(!message.content.startsWith(client.prefix)) return;
+    if(!message.content.startsWith("p!")) return;
     if(message.author.bot) return;
     if(message.webhookId) return;
     
