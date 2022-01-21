@@ -62,7 +62,8 @@ module.exports = new Command({
 
             fs.writeFileSync(`./secrets/temp/sourceCode${webURL.replace(/\.[\s\S]*$/g, "")}.html`);
 
-
+        } else if (com === "image" || com === "img") {
+            
         }
     }
 }); // dood was here. (he didnt make this)

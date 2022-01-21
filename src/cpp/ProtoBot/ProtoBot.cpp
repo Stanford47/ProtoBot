@@ -1,11 +1,6 @@
 #include <dpp/dpp.h>
 #include <iostream>
 #include <string>
-#include "req/frw.hpp"
-#include "req/easyFS.hpp"
-
-fileManip fmp;
-easyFS efs;
 
 int main()
 {
