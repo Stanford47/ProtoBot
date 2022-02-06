@@ -1,6 +1,8 @@
 const Command = require('../classes/Command');
 const Discord = require('discord.js');
 const fs = require('fs');
+const codeRunner = require('jdoodlecoderunner');
+const { jdoodle } = require('../../../secrets/config.json');
 
 module.exports = new Command({
     name: "code",
@@ -9,8 +11,8 @@ module.exports = new Command({
     async run(message, args, client) {
         //delcaring vars for options
         const sub = args[1] || null
-        let language = args[2].toLowerCase() || null;
-        let opt = args.slice(3).join(" ") || null;
+        let language = args[2]?.toLowerCase() || null;
+        let opt = args.slice(3)?.join(" ") || null;
 
         //handling user mistakes
         if (sub === null) return message.reply("you must give me the name of an operation to execute!"); //simplify this lol
@@ -61,6 +63,8 @@ module.exports = new Command({
                 content: `${opt} program for ${language}`,
                 files: [att]
             });
+        } else if (sub === "run") { 
+            console.log(`${JSON.stringify(codeRunner.runCode(`./secrets/temp/${message.guild.id}${language}.toaster`, 'nodejs', 0, null, jdoodle.client_id, jdoodle.client_secret))}`);
         } else {
             return message.reply("that operation does not exist!");
         }

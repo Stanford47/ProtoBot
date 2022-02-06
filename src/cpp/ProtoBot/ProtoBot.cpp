@@ -1,10 +1,13 @@
 #include <dpp/dpp.h>
 #include <iostream>
 #include <string>
+#include "req/pbcl.hpp"
 
 int main()
 {
-	dpp::cluster bot(fmp.getLine("token.txt"));
+	PBR::FS::fileManip fm;
+
+	dpp::cluster bot(fm.getLine("token.txt"));
 
 	bot.on_ready([&bot](const auto &event)
 				 { std::cout << "ready!"; });

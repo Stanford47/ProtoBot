@@ -7,13 +7,14 @@ module.exports = new Command({
     description: "gets a definition for a word from the urban dictionary",
 
     async run(message, args, client) {
-        const word = args[1] || null;
+        const word = args.slice(1).join(" ") || null;
         var nWord = word;
 
         if(word === null) return message.reply("you must give me a word to find the definition of!");
 
         if(word.includes("#")) nWord = word.replace("#", "%23");
-        else if(word.includes("%")) nWord = word.replace("%", "%25");
+        else if (word.includes("%")) nWord = word.replace("%", "%25");
+        else if(word.includes(" ")) nWord = word.replace(" ", "+")
 
         const browser = await puppeteer.launch();
         const newPage = await browser.newPage();

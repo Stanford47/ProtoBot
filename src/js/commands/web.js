@@ -1,5 +1,4 @@
 const fs = require('fs');
-const httpGet = require('../../../secrets/httpGet');
 const puppeteer = require('puppeteer');
 const Command = require('../classes/Command');
 const Discord = require('discord.js');
@@ -58,12 +57,15 @@ module.exports = new Command({
         } else if (com === "source" || com === "src") {
             if (webURL === null) return message.reply("you must give me the url of the website to take a screenshot of!");
 
+            const uw = webURL.replace(/\.[\s\S]*$/g, "");
+
             var am = fs.readdirSync('./secrets/temp').length;
 
-            fs.writeFileSync(`./secrets/temp/sourceCode${webURL.replace(/\.[\s\S]*$/g, "")}.html`);
+            fs.writeFileSync(`./secrets/temp/sourceCode${uw}.html`);
 
-        } else if (com === "image" || com === "img") {
-            
+            message.channel.send({
+                files: [new Discord.MessageAttachment(`./secrets/temp/sourceCode${uw}.html`)]
+            });
         }
     }
 }); // dood was here. (he didnt make this)

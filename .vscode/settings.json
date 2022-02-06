@@ -1,4 +1,8 @@
 {
     "cmake.configureOnOpen": false,
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "java.project.sourcePaths": [
+        "assets/uwus/java",
+        ".pbsm"
+    ]
 }

@@ -30,6 +30,7 @@
     "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
     "genius-lyrics": "^4.3.5",
+    "jdoodlecoderunner": "^1.0.1",
     "libsodium-wrappers": "^0.7.9",
     "moment": "^2.29.1",
     "mongoose": "^6.1.7",
@@ -38,6 +39,7 @@
     "oxford-dictionary": "^1.6.0",
     "puppeteer": "^13.1.1",
     "replace-string": "^4.0.0",
+    "request": "^2.88.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   }
