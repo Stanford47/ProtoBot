@@ -9,6 +9,9 @@ module.exports = new Command({
     description: "base command for programming related commands",
 
     async run(message, args, client) {
+
+        return message.reply("not woring rn will be fixed soon :>");
+        
         //delcaring vars for options
         const sub = args[1] || null
         let language = args[2]?.toLowerCase() || null;

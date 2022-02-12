@@ -24,7 +24,6 @@ src\java\.gradle
 src\java\gradlew
 src\java\gradlew.bat
 src\java\settings.gradle
-assets\uwus
 debugjsonly.cmd
 start.cmd
 compile.cmd
