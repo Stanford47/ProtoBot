@@ -3,28 +3,19 @@
 #include <string>
 #include "req/pbcl.hpp"
 
+
 int main()
 {
-	PBR::FS::fileManip fm;
+	dpp::cluster bot(pb::fs::read_file("token.txt"));
 
-	dpp::cluster bot(fm.getLine("token.txt"));
+	dpp::commandhandler command_handler(&bot);
 
-	bot.on_ready([&bot](const auto &event)
-				 { std::cout << "ready!"; });
+	command_handler.add_prefix("p!");
 
-	bot.on_message_create([&bot](const auto &event)
-						  {
-		if (event.msg.content == "p!cppTest") {
-			bot.message_create(dpp::message(event.msg.channel_id, "test"));
-		}
+	bot.on_ready([&command_handler](const dpp::ready_t &event) 
+		{
 
-		if(event.msg.content == "p!filePath") {
-			bot.message_create(dpp::message(event.msg.channel_id, efs.get_path()));
-		}	
-
-		/*
-		Any header files or functions that you make outside of this file, pls put in req folder
-		*/ });
+		});
 
 	bot.start(false);
 

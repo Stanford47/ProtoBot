@@ -20,9 +20,15 @@ src\cpp\ProtoBot\out
 src\cpp\ProtoBot\Release
 src\cpp\ProtoBot\out\build
 node_modules
-src\java\gradle
 src\java\.gradle
 src\java\gradlew
 src\java\gradlew.bat
 src\java\settings.gradle
 assets\uwus
+debugjsonly.cmd
+start.cmd
+compile.cmd
+fulljsonly.cmd
+full1.cmd
+full2.cmd
+s.cmd

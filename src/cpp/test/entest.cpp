@@ -1,10 +1,11 @@
 #include "pbcl.hpp"
+#include <iostream>
 
 int main()
 {
-    PBR::SEC::security sec;
+    pb::fs::write_file("test.txt", "Hello World!");
 
-    sec.encrypt("wow");
+    std::cout << pb::fs::read_file("test.txt") << std::endl;
 
     return 0;
 }
