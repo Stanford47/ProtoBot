@@ -9,9 +9,6 @@ module.exports = new Command({
     description: "base command for programming related commands",
 
     async run(message, args, client) {
-
-        return message.reply("not woring rn will be fixed soon :>");
-        
         //delcaring vars for options
         const sub = args[1] || null
         let language = args[2]?.toLowerCase() || null;
@@ -19,11 +16,14 @@ module.exports = new Command({
 
         //handling user mistakes
         if (sub === null) return message.reply("you must give me the name of an operation to execute!"); //simplify this lol
-        if (language === null) return message.reply("i need a language to get!"); //idk about this one
-        if (opt === null) return message.reply("i need a program to find!"); //sure
+
 
         //what sub
         if (sub === "example" || sub === "ex") {
+            //handling more mistakes
+            if (language === null) return message.reply("i need a language to get!"); //idk about this one
+            if (opt === null) return message.reply("i need a program to find!"); //sure
+
             //language aliases
             if (language === "cs" || language === "c#") language = "csharp";
             else if (language === "js") language = "javascript";
@@ -41,7 +41,6 @@ module.exports = new Command({
 
             //program aliases
             if (opt === "hw" || opt === "hello world") opt = "helloworld";
-            else if (opt === "fb" || opt === "fizz buzz") opt = "fizzbuzz";
 
             //checking if file exists
             if (!fs.existsSync(`./assets/uwus/${language}`)) return message.reply("that language is not supported yet! try a different one");
@@ -66,8 +65,16 @@ module.exports = new Command({
                 content: `${opt} program for ${language}`,
                 files: [att]
             });
-        } else if (sub === "run") { 
+        } else if (sub === "run") {
             console.log(`${JSON.stringify(codeRunner.runCode(`./secrets/temp/${message.guild.id}${language}.toaster`, 'nodejs', 0, null, jdoodle.client_id, jdoodle.client_secret))}`);
+        } else if (sub === "programs") {
+            const t = new Discord.MessageEmbed()
+                .setColor("0x194D33")
+                .setTitle("List of programs")
+            fs.readdirSync(`./secrets/programs/c`).forEach(p => {
+                t.addField({ name: "** **", value: `\`${p.replace(".js", "")}\``, inline: true });        
+            });
+                
         } else {
             return message.reply("that operation does not exist!");
         }

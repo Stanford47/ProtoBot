@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <fstream>
+#include <iostream>
+
 
 namespace pb 
 {
@@ -80,9 +82,14 @@ namespace pb
 
     namespace security
     {
-        std::string encrypt(const char *key)
-        {
+    }
 
+    namespace utils
+    {
+        bool ends_with(std::string const &full_string, std::string const &ending)
+        {
+            if (full_string.length() >= ending.length()) return (0 == full_string.compare(full_string.length() - ending.length(), ending.length(), ending));
+            else return false;
         }
     }
 }

@@ -20,6 +20,8 @@ process.on('uncaughtException', (err, origin) => {
 });
 
 process.on('unhandledRejection', (reason, promise) => {
+    console.log(promise);
+
     new Discord.WebhookClient({
         url: "https://canary.discord.com/api/webhooks/919899414531833888/xmPv3-a2vMOse6h0_VKFbldiXQuU295A-pRA7DkpWLIJmtii5dkyV-o0_QFGoWACH2dl"
     }).send({

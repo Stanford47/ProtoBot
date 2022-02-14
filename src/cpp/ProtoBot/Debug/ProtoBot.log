@@ -698,4 +698,6 @@ C:\Users\Owner\Documents\GitHub\ProtoBot\secrets\import\dpp\include\dpp-9.0\dpp\
 C:\Users\Owner\Documents\GitHub\ProtoBot\secrets\import\dpp\include\dpp-9.0\dpp\commandhandler.h(206): message : see declaration of 'std::unordered_map<std::string,dpp::command_info_t,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,dpp::command_info_t>>>'
 C:\Users\Owner\Documents\GitHub\ProtoBot\secrets\import\dpp\include\dpp-9.0\dpp\commandhandler.h(211,27): warning C4251: 'dpp::commandhandler::prefixes': class 'std::vector<std::string,std::allocator<std::string>>' needs to have dll-interface to be used by clients of class 'dpp::commandhandler'
 C:\Users\Owner\Documents\GitHub\ProtoBot\secrets\import\dpp\include\dpp-9.0\dpp\discord.h(130): message : see declaration of 'std::vector<std::string,std::allocator<std::string>>'
-C:\Users\Owner\Documents\GitHub\ProtoBot\src\cpp\ProtoBot\ProtoBot.cpp(4,10): fatal error C1083: Cannot open include file: 'req/pbcl.hpp': No such file or directory
+C:\Users\Owner\Documents\GitHub\ProtoBot\src\cpp\ProtoBot\req\pbcl.hpp(49,46): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'unsigned int', possible loss of data
+C:\Users\Owner\Documents\GitHub\ProtoBot\src\cpp\ProtoBot\req\pbcl.hpp(51,34): warning C4244: 'argument': conversion from 'unsigned __int64' to 'size_t', possible loss of data
+  ProtoBot.vcxproj -> C:\Users\Owner\Documents\GitHub\ProtoBot\ProtoBot.exe
