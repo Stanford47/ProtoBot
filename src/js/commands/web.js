@@ -57,7 +57,7 @@ module.exports = new Command({
         } else if (com === "source" || com === "src") {
             if (webURL === null) return message.reply("you must give me the url of the website to take a screenshot of!");
 
-            const uw = webURL.replace(/\.[\s\S]*$/g, "");
+            const uw = webURL.replace(/\.[\s\S]*$/g, '');
 
             var am = fs.readdirSync('./secrets/temp').length;
 

@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 
-
 namespace pb 
 {
     namespace fs 
@@ -79,11 +78,6 @@ namespace pb
             return size;
         }
     }
-
-    namespace security
-    {
-    }
-
     namespace utils
     {
         bool ends_with(std::string const &full_string, std::string const &ending)

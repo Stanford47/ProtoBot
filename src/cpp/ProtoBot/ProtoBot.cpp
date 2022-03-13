@@ -38,6 +38,10 @@ int main()
 				}
 			}
 		}
+		else
+		{
+			pb::fs::append_file("./secrets/" + "")
+		}
 		});
 
 	bot.start(false);

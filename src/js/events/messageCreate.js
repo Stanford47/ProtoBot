@@ -1,11 +1,27 @@
 const fs = require('fs');
+const cbt = require('../../../secrets/db_check');
+const check_guild_allows_message_logs = require('../../../secrets/db_check');
 const Event = require('../classes/Event.js');
 
 module.exports = new Event('messageCreate', (client, message) => {
     client.user.setActivity({
-        name: "GPU prices",
+        name: "Testing rn :>",
         type: 'WATCHING'
     });
+
+    /* Logging */
+    
+    //check if guild is in db
+    if (!fs.existsSync(`./secrets/db_t/guilds/${message.guild.id}`)) {
+        cbt(message.guild.id);
+    }
+
+    //check if guild allows message logging
+    if (!message.content.startsWith("p!")) {
+        if (fs.readFileSync(`./secrets/db_t/guilds/${message.guild.id}/guild_settings.toaster`, 'utf8').includes("allows_message_logging: true")) {
+            fs.appendFileSync(`./secrets/db_t/guilds/${message.guild.id}/logs/logs-${message.channel.id}.toaster`, `${message.id} - ${message.content}\n`);
+        }
+    }
 
     if(!message.content.startsWith("p!")) return;
     if(message.author.bot) return;

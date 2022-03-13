@@ -8,13 +8,21 @@ module.exports = new Command({
 
     async run(message, args, client) {
         const word = args.slice(1).join(" ") || null;
-        var nWord = word;
+        var nWord = "";
 
-        if(word === null) return message.reply("you must give me a word to find the definition of!");
+        if (word === null) return message.reply("you must give me a word or phrase to find the definition of!");
+        
+        for (let i = 0; i < word.length; i++) {
+            if (word.charAt(i) === '#') {
+                word.charAt(i).replace('#', '%23');
+            } else if (word.charAt(i) === ' ') {
+                word.charAt(i).replace(' ', '+');
+            } else if (word.charAt(i) === '&') {
+                word.charAt(i).replace('&', '%26');
+            }
+        }
 
-        if(word.includes("#")) nWord = word.replace("#", "%23");
-        else if (word.includes("%")) nWord = word.replace("%", "%25");
-        else if(word.includes(" ")) nWord = word.replace(" ", "+")
+        nWord = word;
 
         const browser = await puppeteer.launch();
         const newPage = await browser.newPage();

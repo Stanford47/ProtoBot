@@ -9,7 +9,7 @@ const client = new Client();
 //err handling
 process.on('uncaughtException', (err, origin) => {
     new Discord.WebhookClient({ 
-        url: "https://canary.discord.com/api/webhooks/919899414531833888/xmPv3-a2vMOse6h0_VKFbldiXQuU295A-pRA7DkpWLIJmtii5dkyV-o0_QFGoWACH2dl"
+        url: "https://canary.discord.com/api/webhooks/950278945994059776/2AuehcmcrwOOpA7ZIThG_pQBtJAsii5-0dMM2MvdAWXlQHslLSMabHpuFLbHBWx0lEX7"
      }).send({
          embeds: [new Discord.MessageEmbed()
             .setColor('RANDOM')
@@ -23,7 +23,7 @@ process.on('unhandledRejection', (reason, promise) => {
     console.log(promise);
 
     new Discord.WebhookClient({
-        url: "https://canary.discord.com/api/webhooks/919899414531833888/xmPv3-a2vMOse6h0_VKFbldiXQuU295A-pRA7DkpWLIJmtii5dkyV-o0_QFGoWACH2dl"
+        url: "https://canary.discord.com/api/webhooks/950278945994059776/2AuehcmcrwOOpA7ZIThG_pQBtJAsii5-0dMM2MvdAWXlQHslLSMabHpuFLbHBWx0lEX7"
     }).send({
         embeds: [new Discord.MessageEmbed()
             .setColor('RANDOM')
