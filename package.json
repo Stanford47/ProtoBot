@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Stanford47/ProtoBot#readme",
   "dependencies": {
-    "@discordjs/opus": "^0.5.3",
+    "@discordjs/opus": "^0.8.0",
     "@discordjs/voice": "^0.6.0",
     "@zuzak/owo": "^1.15.0",
     "brain.js": "^2.0.0-beta.4",
