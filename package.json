@@ -33,7 +33,7 @@
     "jdoodlecoderunner": "^1.0.1",
     "libsodium-wrappers": "^0.7.9",
     "moment": "^2.29.2",
-    "mongoose": "^6.1.7",
+    "mongoose": "^6.4.6",
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
     "oxford-dictionary": "^1.6.0",
